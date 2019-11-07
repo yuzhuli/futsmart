@@ -10,6 +10,8 @@ export const MyFigure = ({player}) => {
             alt="pikachu" 
             src={player.image} 
             roundedCircle
+            onClick={() => console.log("clicked")}
+            style={{cursor: "pointer"}}
         />
         <Figure.Caption>
             {player.description}
