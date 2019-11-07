@@ -4,6 +4,7 @@ import MyNavbar from './Navbar';
 import MyTab from './Market/tab';
 import { MyPlayerList } from './Player/playerList';
 import reus from './images/reus.png';
+import { Container, Navbar } from 'react-bootstrap';
 
 function App() {
   const players = [{
@@ -19,7 +20,23 @@ function App() {
   return (
     <div>
       <MyNavbar />
+      <br/>
+
+      <Container>
+        <Navbar bg="light" variant="light" expand="lg">
+          <Navbar.Brand>Index 100</Navbar.Brand>
+        </Navbar>
+      </Container>
+      <br/>
       <MyTab />
+      <br/>
+
+      <Container>
+        <Navbar bg="light" variant="light" expand="lg">
+          <Navbar.Brand>Player Trends</Navbar.Brand>
+        </Navbar>
+      </Container>
+      <br/>
       <MyPlayerList players={players}/>
     </div>
   );
