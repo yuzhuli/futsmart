@@ -4,6 +4,8 @@ import MyNavbar from './Navbar';
 import MyTab from './Market/tab';
 import { MyPlayerList } from './Player/playerList';
 import reus from './images/reus.png';
+import pirlo from './images/pirlo.png';
+import plinho from './images/plinho.png';
 import { Container, Navbar } from 'react-bootstrap';
 
 function App() {
@@ -12,9 +14,17 @@ function App() {
     description: "test"
   },
   {
+    image: pirlo,
+    description: "test"
+  },
+  {
+    image: plinho,
+    description: "test"
+  },
+  {
     image: reus,
     description: "test"
-  }
+  },
 ];
 
   return (
