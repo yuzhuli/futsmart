@@ -6,24 +6,40 @@ import { MyPlayerList } from './Player/playerList';
 import reus from './images/reus.png';
 import pirlo from './images/pirlo.png';
 import plinho from './images/plinho.png';
+import thiago from './images/thiago.png';
+import malen from './images/malen.png';
 import { Container, Navbar } from 'react-bootstrap';
 
 function App() {
   const players = [{
     image: reus,
-    description: "test"
+    name: "reus",
+    price: "3000",
+    percent: "50%",
   },
   {
     image: pirlo,
-    description: "test"
+    name: "pirlo",
+    price: "2500",
+    percent: "30%",
   },
   {
     image: plinho,
-    description: "test"
+    name: "plinho",
+    price: "300",
+    percent: "10%",
   },
   {
-    image: reus,
-    description: "test"
+    image: thiago,
+    name: "thiago",
+    price: "1500",
+    percent: "20%",
+  },
+  {
+    image: malen,
+    name: "malen",
+    price: "1000",
+    percent: "5%",
   },
 ];
 
@@ -43,11 +59,11 @@ function App() {
 
       <Container>
         <Navbar bg="light" variant="light" expand="lg">
-          <Navbar.Brand>Player Trends</Navbar.Brand>
+          <Navbar.Brand>Golden Player Trends</Navbar.Brand>
         </Navbar>
       </Container>
       <br/>
-      <MyPlayerList players={players}/>
+      <MyPlayerList increasingPlayers={players} decreasingPlayers={players}/>
     </div>
   );
 }
