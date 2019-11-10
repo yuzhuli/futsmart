@@ -10,6 +10,7 @@ import thiago from './images/thiago.png';
 import malen from './images/malen.png';
 import { Container, Navbar } from 'react-bootstrap';
 
+
 function App() {
   const players = [{
     image: reus,
@@ -44,12 +45,23 @@ function App() {
 ];
 
   return (
+
+
     <div>
+    <style type="text/css">
+      {`
+        .navbar-h1 {
+          background-color: DarkGray;
+          color: black;
+        }
+      `}
+    </style>
+
       <MyNavbar />
       <br/>
 
       <Container>
-        <Navbar bg="light" variant="light" expand="lg">
+        <Navbar className="navbar" variant="h1" expand="lg">
           <Navbar.Brand>Index 100</Navbar.Brand>
         </Navbar>
       </Container>
@@ -58,7 +70,7 @@ function App() {
       <br/>
 
       <Container>
-        <Navbar bg="light" variant="light" expand="lg">
+        <Navbar className="navbar" variant="h1" expand="lg">
           <Navbar.Brand>Golden Player Trends</Navbar.Brand>
         </Navbar>
       </Container>
