@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import MyNavbar from './Navbar';
+import {SectionHeader} from './Navbar/sectionHeader'
 import MyTab from './Market/tab';
 import { MyPlayerList } from './Player/playerList';
 import reus from './images/reus.png';
@@ -45,37 +46,19 @@ function App() {
 ];
 
   return (
-
-
     <div>
-    <style type="text/css">
-      {`
-        .navbar-h1 {
-          background-color: DarkGray;
-          color: black;
-        }
-      `}
-    </style>
-
       <MyNavbar />
       <br/>
-
-      <Container>
-        <Navbar className="navbar" variant="h1" expand="lg">
-          <Navbar.Brand>Index 100</Navbar.Brand>
-        </Navbar>
-      </Container>
+      
+      <SectionHeader header="Index 100"/>
       <br/>
       <MyTab />
       <br/>
 
-      <Container>
-        <Navbar className="navbar" variant="h1" expand="lg">
-          <Navbar.Brand>Golden Player Trends</Navbar.Brand>
-        </Navbar>
-      </Container>
+      <SectionHeader header="Golden Player" />
       <br/>
       <MyPlayerList increasingPlayers={players} decreasingPlayers={players}/>
+      <br/>
     </div>
   );
 }
