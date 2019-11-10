@@ -1,12 +1,18 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { MyFigure } from "./figure";
 
 
 export const MyPlayerList = ({increasingPlayers, decreasingPlayers}) => {
     return (
         <Container>
-            <h5>Increasing</h5>
+            <Navbar>
+                <Navbar.Brand >Increasing</Navbar.Brand>
+                    <Nav className="mr-auto"></Nav>
+                    <Nav>
+                        <Nav.Link href="/">See All</Nav.Link>
+                    </Nav>
+            </Navbar>
             <Row>
                 {increasingPlayers.map(player => {
                     return (
@@ -16,7 +22,13 @@ export const MyPlayerList = ({increasingPlayers, decreasingPlayers}) => {
                     );
                 })}
             </Row>
-            <h5>Decreasing</h5>
+            <Navbar>
+                <Navbar.Brand >Decreasing</Navbar.Brand>
+                    <Nav className="mr-auto"></Nav>
+                    <Nav>
+                        <Nav.Link href="/">See All</Nav.Link>
+                    </Nav>
+            </Navbar>
             <Row>
                 {decreasingPlayers.map(player => {
                     return (
