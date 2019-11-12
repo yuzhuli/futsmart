@@ -1,16 +1,17 @@
 import React from 'react';
 import {Figure, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const MyFigure = ({player}) => {
     return (
+        <Link to='/profile'>
         <Figure>
             <Figure.Image
                 width={171}
                 height={180}
                 alt={player.name} 
                 src={player.image} 
-                roundedCircle
-                onClick={() => console.log("clicked")}
+                rounded
                 style={{cursor: "pointer"}}
             />
             <Figure.Caption style={{textAlign: "center"}}>
@@ -21,5 +22,6 @@ export const MyFigure = ({player}) => {
                 </Button>
             </Figure.Caption>
         </Figure>
+        </Link>
     );
 };

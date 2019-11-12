@@ -44,9 +44,6 @@ const players = [{
 export const Home = () => {
     return (
         <div>
-            <MyNavbar />
-            <br/>
-            
             <SectionHeader header="Index 100"/>
             <br/>
             <MyTab />
