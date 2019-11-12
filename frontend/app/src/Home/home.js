@@ -4,7 +4,6 @@ import pirlo from '../images/pirlo.png';
 import plinho from '../images/plinho.png';
 import thiago from '../images/thiago.png';
 import malen from '../images/malen.png';
-import MyNavbar from '../Navbar';
 import {SectionHeader} from '../Navbar/sectionHeader'
 import MyTab from '../Market/tab';
 import { MyPlayerRow } from '../Player/playerRow';

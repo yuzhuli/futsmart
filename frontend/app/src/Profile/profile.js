@@ -1,7 +1,8 @@
 import React from 'react';
+import { MyBadge } from './badge';
 
 export const Profile = () => {
     return (
-        <h1>Profile Page</h1>
+        <MyBadge/>
     );
 }

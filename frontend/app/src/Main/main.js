@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { Home } from '../Home/home';
-import { PlayerList } from '../Player/playerList';
-import { Profile } from '../Player/profile';
+import { PlayerList } from '../PlayerList/playerList';
+import { Profile } from '../Profile/profile';
 
 export const Main = () => {
     return (
