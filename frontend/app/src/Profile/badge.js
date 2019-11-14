@@ -1,8 +1,6 @@
 import React from 'react';
-import ultimateCard from '../images/ultimateCard.png';
-import pirlo from '../images/pirlo.png';
 import messi from '../images/messi.png';
-import { Container, Row, Image, Col } from 'react-bootstrap';
+import {Image,} from 'react-bootstrap';
 import flag from '../images/flag.png';
 import club from '../images/club.png';
 
