@@ -5,8 +5,8 @@ import plinho from '../images/plinho.png';
 import thiago from '../images/thiago.png';
 import malen from '../images/malen.png';
 import {SectionHeader} from '../Navbar/sectionHeader'
-import MyTab from '../Market/tab';
 import { MyPlayerRow } from '../PlayerRow/playerRow';
+import { PlayerCategoryTab } from '../Market/playerTab';
 
 const players = [{
     image: reus,
@@ -43,9 +43,9 @@ const players = [{
 export const Home = () => {
     return (
         <div>
-            <SectionHeader header="Index 100"/>
-            <br/>
-            <MyTab />
+            {/* <SectionHeader header="Index 100"/> */}
+            {/* <br/> */}
+            <PlayerCategoryTab />
             <br/>
 
             <SectionHeader header="Golden Player" />

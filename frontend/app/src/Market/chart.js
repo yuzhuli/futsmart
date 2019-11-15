@@ -1,8 +1,9 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2';
-
-const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  
+export const IndexLineChart = ({indices, chartType}) => {
+  const data_template = {
+    labels: [],
     datasets: [
       {
         label: 'Index Value',
@@ -23,20 +24,40 @@ const data = {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: []
       }
-    ]
-  };
-  
-class LineExample extends React.Component{
-    render() {
-      return (
-        <div>
-          <h2>Line Example</h2>
-          <Line data={data} />
-        </div>
-      );
-    }
+    ], 
   };
 
-  export default LineExample;
+const options_template = {
+  scales: {
+    xAxes: [{
+      ticks: {
+        maxTicksLimit: 0,
+        stepSize: 0,
+      }
+    }]
+  }
+};
+
+  indices.forEach(element => {
+    data_template.labels.push(element[0]);
+    data_template.datasets[0].data.push(element[1]);
+  });
+  console.log(data_template.labels);
+  if (chartType == 'sevenDays') {
+    options_template.scales.xAxes[0].ticks.maxTicksLimit = 14;
+    options_template.scales.xAxes[0].ticks.stepSize = 2;
+  } 
+  if (chartType == 'all') {
+    options_template.scales.xAxes[0].ticks.maxTicksLimit = 12;
+    options_template.scales.xAxes[0].ticks.stepSize = 2;
+  }
+
+  return (
+    <div>
+      <h2>Line Example</h2>
+      <Line data={data_template} options={options_template}/>
+    </div>
+  );
+};
