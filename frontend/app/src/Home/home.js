@@ -43,8 +43,6 @@ const players = [{
 export const Home = () => {
     return (
         <div>
-            {/* <SectionHeader header="Index 100"/> */}
-            {/* <br/> */}
             <PlayerCategoryTab />
             <br/>
 
