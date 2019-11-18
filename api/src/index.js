@@ -16,7 +16,7 @@ app.use(cors());
 //     console.log('Sent list of items');
 // });
 
-app.get('/api/getGoldSeven', (req, res) => {
+app.get('/index/gold', (req, res) => {
     var sevenDaysIndices = [
         ['Mon1', 10],
         ['test', 5],
@@ -47,9 +47,40 @@ app.get('/api/getGoldSeven', (req, res) => {
         ['Sun2', 40],
         ['test', 5],
     ];
-    res.json(sevenDaysIndices);
-    // res.send(sevenDaysIndices);
+    const allIndices = [
+        ['Jan', 10],
+        ['test', 5],
+        ['Feb', 20],
+        ['test', 5],
+        ['Mar', 30],
+        ['test', 5],
+        ['Apr', 40],
+        ['test', 5],
+        ['May', 50],
+        ['test', 5],
+        ['Jun', 60],
+        ['test', 5],
+        ['Jul', 30],
+        ['test', 5],
+        ['Aug', 40],
+        ['test', 5],
+        ['Sep', 50],
+        ['test', 5],
+        ['Oct', 20],
+        ['test', 5],
+        ['Nov', 10],
+        ['test', 5],
+        ['Dec', 25]
+    ];
+    if (req.query.type == 'sevendays') {
+        res.json(sevenDaysIndices);
+    }
+    if (req.query.type == 'all') {
+        res.json(allIndices);
+    }
 });
+
+
 
 const port = process.env.PORT || 3001;
 app.listen(port);
