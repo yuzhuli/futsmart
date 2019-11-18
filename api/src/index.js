@@ -1,21 +1,23 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const bodyParser = require('body-parser');
+app.use(cors());
 
 // Serve the static files from the React app
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
 // An api endpoint that returns a short list of items
-app.get('/api/getList', (req,res) => {
-    var list = ["item1", "item2", "item3"];
-    res.json(list);
-    console.log('Sent list of items');
-});
+// app.get('/api/getList', (req,res) => {
+//     var list = ["item1", "item2", "item3"];
+//     res.json(list);
+//     console.log('Sent list of items');
+// });
 
 app.get('/api/getGoldSeven', (req, res) => {
-    const sevenDayIndices = [
+    var sevenDaysIndices = [
         ['Mon1', 10],
         ['test', 5],
         ['Mon2', 30],
@@ -45,7 +47,8 @@ app.get('/api/getGoldSeven', (req, res) => {
         ['Sun2', 40],
         ['test', 5],
     ];
-    res.json(list);
+    res.json(sevenDaysIndices);
+    // res.send(sevenDaysIndices);
 });
 
 const port = process.env.PORT || 3001;
