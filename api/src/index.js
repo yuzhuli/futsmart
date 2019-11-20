@@ -1,21 +1,17 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const redis = require('redis');
 
 const app = express();
 const bodyParser = require('body-parser');
+// const client = redis.createClient();
 app.use(cors());
 
 // Serve the static files from the React app
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
 // An api endpoint that returns a short list of items
-// app.get('/api/getList', (req,res) => {
-//     var list = ["item1", "item2", "item3"];
-//     res.json(list);
-//     console.log('Sent list of items');
-// });
-
 app.get('/index/gold', (req, res) => {
     var sevenDaysIndices = [
         ['Mon1', 10],
@@ -209,4 +205,5 @@ app.get('/index/inform', (req, res) => {
 });
 
 const port = process.env.PORT || 3001;
-app.listen(port);
+const host = '0.0.0.0'
+app.listen(port, host);
