@@ -5,7 +5,10 @@ const redis = require('redis');
 
 const app = express();
 const bodyParser = require('body-parser');
-// const client = redis.createClient();
+const client = redis.createClient({
+    host: 'redis-server',
+    port: 6379,
+});
 app.use(cors());
 
 // Serve the static files from the React app
