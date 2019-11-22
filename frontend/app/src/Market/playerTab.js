@@ -2,29 +2,38 @@ import React, { useEffect, useState } from 'react'
 import { Container, Tabs, Tab, Nav } from "react-bootstrap";
 import { ChartCategoryTab } from "./chartTab";
 
+function convert_str_data(str_data) {
+    arr_of_str = str_data.split(',');
+    arr_of_tupe = []
+    for (var i = 0; i < arr_data.length; i += 2) {
+        tuple = [arr_of_str[i], parseInt(arr_of_str[i + 1])]
+        arr_of_tupe.push(tuple);
+    }
+    return arr_of_tupe
+}
 
 export const PlayerCategoryTab = () => {
-    const [goldSevenDaysIndices, setGoldSevenDaysIndices] = useState(Array(28).fill(['', 10]));
-    const [goldAllIndices, setGoldAllIndices] = useState(Array(24).fill(['', 10]));
+    const [goldSevenDaysIndices, setGoldSevenDaysIndices] = useState([]);
+    const [goldAllIndices, setGoldAllIndices] = useState([]);
 
-    const [iconSevenDaysIndices, setIconSevenDaysIndices] = useState(Array(28).fill(['', 10]));
-    const [iconAllIndices, setIconAllIndices] = useState(Array(24).fill(['', 10]));
+    const [iconSevenDaysIndices, setIconSevenDaysIndices] = useState([]);
+    const [iconAllIndices, setIconAllIndices] = useState([]);
 
-    const [informSevenDaysIndices, setInformSevenDaysIndices] = useState(Array(28).fill(['', 10]));
-    const [informAllIndices, setInformAllIndices] = useState(Array(24).fill(['', 10]));
+    const [informSevenDaysIndices, setInformSevenDaysIndices] = useState([]);
+    const [informAllIndices, setInformAllIndices] = useState([]);
 
     // Fetch index data for gold players
     useEffect( () => {
         fetch("http://localhost:3001/index/gold?type=sevendays").then(response =>
             response.json().then(data => {
-                setGoldSevenDaysIndices(data);
+                setGoldSevenDaysIndices(convert_str_data(data));
             }))
     }, []);
 
     useEffect( () => {
         fetch("http://localhost:3001/index/gold?type=all").then(response =>
             response.json().then(data => {
-                setGoldAllIndices(data);
+                setGoldAllIndices(convert_str_data(data));
             }))
     }, []);
 
@@ -32,14 +41,14 @@ export const PlayerCategoryTab = () => {
     useEffect( () => {
         fetch("http://localhost:3001/index/icon?type=sevendays").then(response =>
             response.json().then(data => {
-                setIconSevenDaysIndices(data);
+                setIconSevenDaysIndices(convert_str_data(data));
             }))
     }, []);
 
     useEffect( () => {
         fetch("http://localhost:3001/index/icon?type=all").then(response =>
             response.json().then(data => {
-                setIconAllIndices(data);
+                setIconAllIndices(convert_str_data(data));
             }))
     }, []);
 
@@ -47,14 +56,14 @@ export const PlayerCategoryTab = () => {
     useEffect( () => {
         fetch("http://localhost:3001/index/inform?type=sevendays").then(response =>
             response.json().then(data => {
-                setInformSevenDaysIndices(data);
+                setInformSevenDaysIndices(convert_str_data(data));
             }))
     }, []);
 
     useEffect( () => {
         fetch("http://localhost:3001/index/inform?type=all").then(response =>
             response.json().then(data => {
-                setInformAllIndices(data);
+                setInformAllIndices(convert_str_data(data));
             }))
     }, []);
 
