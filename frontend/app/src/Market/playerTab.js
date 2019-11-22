@@ -3,13 +3,12 @@ import { Container, Tabs, Tab, Nav } from "react-bootstrap";
 import { ChartCategoryTab } from "./chartTab";
 
 function convert_str_data(str_data) {
-    arr_of_str = str_data.split(',');
-    arr_of_tupe = []
-    for (var i = 0; i < arr_data.length; i += 2) {
-        tuple = [arr_of_str[i], parseInt(arr_of_str[i + 1])]
-        arr_of_tupe.push(tuple);
+    const arr_of_str = str_data.split(',');
+    const arr_of_tuple = []
+    for (var i = 0; i < arr_of_str.length - 1; i += 2) {
+        arr_of_tuple.push([arr_of_str[i], parseInt(arr_of_str[i + 1])]);
     }
-    return arr_of_tupe
+    return arr_of_tuple
 }
 
 export const PlayerCategoryTab = () => {
