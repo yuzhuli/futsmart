@@ -3,7 +3,7 @@ import {Tab, Tabs, Container} from 'react-bootstrap';
 import {IndexLineChart} from './chart.js';
 
 
-export const ChartCategoryTab = ({sevenDaysIndices, allIndices, tabType}) => {
+export const TimeRangeTab = ({sevenDaysIndices, allIndices, tabType}) => {
     return (
         <Container>
             <Tabs defaultActiveKey="sevenDays" id={tabType}>

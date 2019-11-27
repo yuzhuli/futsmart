@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Tabs, Tab, Nav } from "react-bootstrap";
-import { ChartCategoryTab } from "./chartTab";
+import { TimeRangeTab } from "./timeRangeTab";
 
 function convert_str_data(str_data) {
     const arr_of_str = str_data.split(',');
@@ -71,13 +71,13 @@ export const PlayerCategoryTab = () => {
         <Container>
             <Tabs defaultActiveKey="gold" id="player-charts">
                 <Tab eventKey="gold" title="Gold Player Index">
-                    <ChartCategoryTab sevenDaysIndices={goldSevenDaysIndices} allIndices={goldAllIndices} tabType="gold-charts"/>
+                    <TimeRangeTab sevenDaysIndices={goldSevenDaysIndices} allIndices={goldAllIndices} tabType="gold-charts"/>
                 </Tab>
                 <Tab eventKey="icon" title="Icon Player Index">
-                    <ChartCategoryTab sevenDaysIndices={iconSevenDaysIndices} allIndices={iconAllIndices} tabType="gold-charts"/>
+                    <TimeRangeTab sevenDaysIndices={iconSevenDaysIndices} allIndices={iconAllIndices} tabType="gold-charts"/>
                 </Tab>
                 <Tab eventKey="inform" title="Inform Player Index">
-                    <ChartCategoryTab sevenDaysIndices={informSevenDaysIndices} allIndices={informAllIndices} tabType="gold-charts"/>
+                    <TimeRangeTab sevenDaysIndices={informSevenDaysIndices} allIndices={informAllIndices} tabType="gold-charts"/>
                 </Tab>
             </Tabs>
         </Container>

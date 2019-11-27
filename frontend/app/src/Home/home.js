@@ -6,7 +6,7 @@ import thiago from '../images/thiago.png';
 import malen from '../images/malen.png';
 import {SectionHeader} from '../Navbar/sectionHeader'
 import { MyPlayerRow } from '../PlayerRow/playerRow';
-import { PlayerCategoryTab } from '../Market/playerTab';
+import { PlayerCategoryTab } from '../Market/playerCategoryTab';
 
 const players = [{
     image: reus,
