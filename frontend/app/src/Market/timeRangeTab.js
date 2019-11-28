@@ -8,7 +8,7 @@ export const TimeRangeTab = ({sevenDaysIndices, allIndices, tabType}) => {
         <Container>
             <Tabs defaultActiveKey="sevenDays" id={tabType}>
                 <Tab eventKey="sevenDays" title="Last 7 Days">
-                    <IndexLineChart indices={sevenDaysIndices} chartType="sevenDays"/>
+                    <IndexLineChart indices={sevenDaysIndices} chartType="seven-days"/>
                 </Tab>
                 <Tab eventKey="all" title="All Time">
                     <IndexLineChart indices={allIndices} chartType="all"/>

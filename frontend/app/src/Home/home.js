@@ -6,7 +6,7 @@ import thiago from '../images/thiago.png';
 import malen from '../images/malen.png';
 import {SectionHeader} from '../Navbar/sectionHeader'
 import { MyPlayerRow } from '../PlayerRow/playerRow';
-import { PlayerCategoryTab } from '../Market/playerCategoryTab';
+import { MarketTrend } from '../Market/marketTrend';
 
 const players = [{
     image: reus,
@@ -43,7 +43,7 @@ const players = [{
 export const Home = () => {
     return (
         <div>
-            <PlayerCategoryTab />
+            <MarketTrend />
             <br/>
 
             <SectionHeader header="Golden Player" />
