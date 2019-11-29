@@ -11,12 +11,11 @@ function convert_str_data(str_data) {
     return arr_of_tuple
 }
 
-export const PlayerCategoryTab = ({isLoading, indices}) => {
+export const PlayerCategoryTab = ({indices}) => {
     return (
         <Container>
             <Tabs defaultActiveKey="gold" id="player-charts">
                 <Tab eventKey="gold" title="Gold Player Index">
-                    {/* {isLoading && <div>Wait I'm Loading indices for you </div>} */}
                     
                     <TimeRangeTab sevenDaysIndices={convert_str_data(indices['goldSeven'])} allIndices={convert_str_data(indices['goldAll'])} tabType="gold-tab"/>
                     

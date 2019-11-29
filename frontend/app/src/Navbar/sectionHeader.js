@@ -13,11 +13,11 @@ export const SectionHeader =({header}) => {
         `}
         </style>
 
-        <Container>
+        <div style={{width: '1250px', margin: '0 auto'}}>
             <Navbar className="navbar" variant="h1" expand="lg">
             <Navbar.Brand>{header}</Navbar.Brand>
             </Navbar>
-        </Container>
+        </div>
         </>
     );
 }

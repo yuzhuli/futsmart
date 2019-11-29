@@ -1,44 +1,30 @@
 import React from 'react'
-import reus from '../images/reus.png';
-import pirlo from '../images/pirlo.png';
-import plinho from '../images/plinho.png';
-import thiago from '../images/thiago.png';
-import malen from '../images/malen.png';
 import {SectionHeader} from '../Navbar/sectionHeader'
 import { MyPlayerRow } from '../PlayerRow/playerRow';
 import { MarketTrend } from '../Market/marketTrend';
+import argentina from '../images/flag.png';
+import barcelona from '../images/club.png';
+import messi from '../images/messi.png';
 
-const players = [{
-    image: reus,
-    name: "reus",
-    price: "3000",
-    percent: "50%",
-  },
-  {
-    image: pirlo,
-    name: "pirlo",
-    price: "2500",
-    percent: "30%",
-  },
-  {
-    image: plinho,
-    name: "plinho",
-    price: "300",
-    percent: "10%",
-  },
-  {
-    image: thiago,
-    name: "thiago",
-    price: "1500",
-    percent: "20%",
-  },
-  {
-    image: malen,
-    name: "malen",
-    price: "1000",
-    percent: "5%",
-  },
-];
+const player = {
+  name: 'messi',
+  position: 'rw',
+  pic: messi,
+  country: argentina,
+  club: barcelona,
+  totalScore: '94',
+  pac: '87',
+  sho: '92',
+  pas: '92',
+  dri: '96',
+  def: '39',
+  phy: '66',
+  price: '100',
+  percent: '5%',
+};
+
+
+const players = [player, player, player, player, player];
 
 export const Home = () => {
     return (
@@ -46,10 +32,12 @@ export const Home = () => {
             <MarketTrend />
             <br/>
 
-            <SectionHeader header="Golden Player" />
-            <br/>
-            <MyPlayerRow increasingPlayers={players} decreasingPlayers={players}/>
-            <br/>
+            <div style={{backgroundImage: 'url("https://i.imgur.com/KfitD6h.jpg")', backgroundSize: 'cover'}}>
+              <SectionHeader header="Golden Player" />
+              <br/>
+              <MyPlayerRow increasingPlayers={players} decreasingPlayers={players}/>
+              <br/>
+            </div>
         </div>
     );
 }
