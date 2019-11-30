@@ -35,6 +35,8 @@ export const MarketTrend = () => {
     }, []);
 
     return (
+        <div style={{backgroundImage:  'url("https://i.imgur.com/0LlRfD7.jpg")', backgroundSize: 'contain'}}>
         <PlayerCategoryTab indices={indices}/>
+        </div>
     );
 } 

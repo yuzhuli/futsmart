@@ -48,6 +48,7 @@ export const MyBadge = ({player}) => {
         color: '#4d331f',
         lineHeight: '18px',
         display: 'block',
+        textTransform: 'uppercase',
     }
 
     const topOneHorLineStyle = {

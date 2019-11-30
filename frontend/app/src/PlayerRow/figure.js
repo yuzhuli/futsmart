@@ -18,9 +18,9 @@ export const MyFigure = ({player}) => {
             <MyBadge player={player}></MyBadge>
             <Figure.Caption style={{textAlign: "center"}}>
                 <Button variant="link" style={{color: "grey"}}>
-                <div>{player.name}</div>
-                <div>{player.price}</div>
-                <div>{player.percent}</div>
+                <div style={{textTransform: 'uppercase'}}>{player.name} - ({player.price})</div>
+                {/* <div>{player.price}</div> */}
+                <div>+{player.percent}</div>
                 </Button>
             </Figure.Caption>
         </Figure>

@@ -7,7 +7,7 @@ export const MyPlayerRow = ({increasingPlayers, decreasingPlayers}) => {
     return (
         <div style={{width: '1250px', margin: '0 auto'}}>
             <Navbar>
-                <Navbar.Brand >Increasing</Navbar.Brand>
+                <Navbar.Brand >Top Up</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav>
                         <Nav.Link href="/gold-list">See All</Nav.Link>
@@ -23,7 +23,7 @@ export const MyPlayerRow = ({increasingPlayers, decreasingPlayers}) => {
                 })}
             </Row>
             <Navbar>
-                <Navbar.Brand >Decreasing</Navbar.Brand>
+                <Navbar.Brand >Top Down</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav>
                         <Nav.Link href="/gold-list">See All</Nav.Link>
