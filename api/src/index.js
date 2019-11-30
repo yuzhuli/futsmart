@@ -34,7 +34,7 @@ app.get('/indices', (req, res) => {
     });
 
     Promise.all(promises).then(results => {
-        for (var i = 0; i < categories.length; i ++) {
+        for (var i = 0; i < results.length; i ++) {
             if (results[i]) {
                 indices[categories[i]] = results[i];
             } else {
@@ -48,58 +48,29 @@ app.get('/indices', (req, res) => {
     });
 });
 
-app.get('/increasing/gold', (req, res) => {
-    getAsync('top-increasing-gold').then(results => {
-        if (results) {
-            res.json(results);
-        } else {
-            throw new Error('No records');
+app.get('/trendy_players', (req, res) => {
+    const categories = ['top-increasing-gold', 'top-decreasing-gold', 'top-increasing-icon', 'top-decreasing-icon'];
+    const players = {};
+    const promises = [];
+    categories.map(category => {
+        const promise = getAsync(category);
+        promises.push(promise);
+    });
+
+    Promise.all(promises).then(results => {
+        for (var i = 0; i < results.length; i++) {
+            if (results[i]) {
+                players[categories[i]] = results[i];
+            } else {
+                throw new Error('Missing indices for: ' + categories[i]);
+            }
         }
+        res.json(players);
     })
     .catch(err => {
         throw new Error(err.toString());
     });
 });
-
-app.get('/decreasing/gold', (req, res) => {
-    getAsync('top-decreasing-gold').then(results => {
-        if (results) {
-            res.json(results);
-        } else {
-            throw new Error('No records');
-        }
-    })
-    .catch(err => {
-        throw new Error(err.toString());
-    });
-});
-
-app.get('/increasing/icon', (req, res) => {
-    getAsync('top-increasing-icon').then(results => {
-        if (results) {
-            res.json(results);
-        } else {
-            throw new Error('No records');
-        }
-    })
-    .catch(err => {
-        throw new Error(err.toString());
-    });
-});
-
-app.get('/decreasing/icon', (req, res) => {
-    getAsync('top-decreasing-icon').then(results => {
-        if (results) {
-            res.json(results);
-        } else {
-            throw new Error('No records');
-        }
-    })
-    .catch(err => {
-        throw new Error(err.toString());
-    });
-});
-
 
 const port = process.env.PORT || 3001;
 const host = '0.0.0.0';

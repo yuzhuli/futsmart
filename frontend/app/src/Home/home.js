@@ -1,6 +1,6 @@
 import React from 'react'
 import {SectionHeader} from '../Navbar/sectionHeader'
-import { MyPlayerRow } from '../PlayerRow/playerRow';
+import { MyPlayerRow } from '../PlayerTrendSection/playerRow';
 import { MarketTrend } from '../Market/marketTrend';
 import argentina from '../images/flag.png';
 import barcelona from '../images/club.png';

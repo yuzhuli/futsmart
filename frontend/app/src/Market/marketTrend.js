@@ -23,19 +23,17 @@ function create_defaul_indices() {
 export const MarketTrend = () => {
     const default_indices = create_defaul_indices();
     const [indices, setIndices] = useState(default_indices);
-    // const [isLoading, setIsLoading] = useState(true);
 
     useEffect( () => {
         fetch("http://localhost:3001/indices").then(response =>
             response.json()).then(data => {
-                // setIsLoading(false);
                 setIndices(data);
                 console.log('data: ', data)
             }).catch(error => console.log('error when fetching data from api: ', error));
     }, []);
 
     return (
-        <div style={{backgroundImage:  'url("https://i.imgur.com/0LlRfD7.jpg")', backgroundSize: 'contain'}}>
+        <div>
         <PlayerCategoryTab indices={indices}/>
         </div>
     );
