@@ -1,27 +1,29 @@
 import React from "react";
 import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
+import {Link} from "react-router-dom";
 import { MyFigure } from "./figure";
 
-export const MyPlayerRow = ({increasingPlayers, decreasingPlayers}) => {
+export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) => {
     return (
-        <div style={{width: '1250px', margin: '0 auto'}}>
+        <>
             <Navbar>
-                <Navbar.Brand >Top Up</Navbar.Brand>
+                <Navbar.Brand >Price {priceType} - Top 5</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav>
-                        <Nav.Link href="/gold-list">See All</Nav.Link>
+                        <Link to={{pathname: `/list/${playerType}`}}>See All</Link>
+                        <Nav.Link href="/list/${playerType}">See All</Nav.Link>
                     </Nav>
             </Navbar>
             <Row>
-                {increasingPlayers.map(player => {
+                {topFivePlayers.map(player => {
                     return (
                         <Col key={player.name}>
-                            <MyFigure player={player}></MyFigure>
+                            <MyFigure player={player} isLoading={isLoading}></MyFigure>
                         </Col>
                     );
                 })}
             </Row>
-            <Navbar>
+            {/* <Navbar>
                 <Navbar.Brand >Top Down</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav>
@@ -36,7 +38,7 @@ export const MyPlayerRow = ({increasingPlayers, decreasingPlayers}) => {
                         </Col>
                     );
                 })}
-            </Row>
-        </div>
+            </Row> */}
+        </>
     );
 }

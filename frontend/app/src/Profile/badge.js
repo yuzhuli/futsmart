@@ -4,7 +4,7 @@ import {Image,} from 'react-bootstrap';
 import flag from '../images/flag.png';
 import club from '../images/club.png';
 
-export const MyBadge = ({player}) => {
+export const MyBadge = ({player, isLoading}) => {
     const bgDivStyle = {
         position: 'relative',
         top: 0,
@@ -234,29 +234,33 @@ export const MyBadge = ({player}) => {
     return (
         // <Container>
             <div style={bgDivStyle}>
-                <div style={scoreItemStyle}>{player.totalScore}</div>
-                <div style={positionItemStyle}>{player.position}</div>
-                <div style={topOneHorLineStyle} />
-                <div style={countryDivStyle}>
-                    <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={player.country}/>
-                </div>
-                <div style={topTwoHorLineStyle} />
-                <div style={clubDivStyle}>
-                    <Image style={{width: '26px', verticalAlign: 'middle'}} src={player.club}/>
-                </div>
-                <div style={picDivStyle}>
-                    <Image style={{width: '122px', verticalAlign: 'middle'}} src={player.pic}/>
-                </div>
-                <div style={nameDivStyle}>{player.name}</div>
-                <div style={threeHorLineDiv} />
-                <div style={paceStyle}>{player.pac} PAC</div>
-                <div style={shoStyle}>{player.sho} SHO</div>
-                <div style={pasStyle}>{player.pas} pas</div>
-                <div style={driStyle}>{player.dri} dri</div>
-                <div style={defStyle}>{player.def} def</div>
-                <div style={phyStyle}>{player.phy} phy</div>
-                <div style={vertLineStyle}></div>
-                <div style={bottomLineStyle}></div>
+                {isLoading &&
+                    <>
+                    <div style={scoreItemStyle}>{player.totalScore}</div>
+                    <div style={positionItemStyle}>{player.position}</div>
+                    <div style={topOneHorLineStyle} />
+                    <div style={countryDivStyle}>
+                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={player.country}/>
+                    </div>
+                    <div style={topTwoHorLineStyle} />
+                    <div style={clubDivStyle}>
+                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={player.club}/>
+                    </div>
+                    <div style={picDivStyle}>
+                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={player.pic}/>
+                    </div>
+                    <div style={nameDivStyle}>{player.name}</div>
+                    <div style={threeHorLineDiv} />
+                    <div style={paceStyle}>{player.pac} PAC</div>
+                    <div style={shoStyle}>{player.sho} SHO</div>
+                    <div style={pasStyle}>{player.pas} pas</div>
+                    <div style={driStyle}>{player.dri} dri</div>
+                    <div style={defStyle}>{player.def} def</div>
+                    <div style={phyStyle}>{player.phy} phy</div>
+                    <div style={vertLineStyle}></div>
+                    <div style={bottomLineStyle}></div>
+                    </>
+                }
             </div>
         // </Container>
     );
