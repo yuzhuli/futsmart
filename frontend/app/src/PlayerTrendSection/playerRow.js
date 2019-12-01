@@ -16,7 +16,7 @@ export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) 
             </Navbar>
             <Row>
 
-                {isLoading == false &&
+                {!isLoading &&
                     topFivePlayers.map(player => {
                     return (
                         <Col key={player.name}>

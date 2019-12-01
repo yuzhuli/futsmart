@@ -3,26 +3,19 @@ import {Figure, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {MyBadge} from "../Profile/badge.js";
 
-export const MyFigure = ({player}) => {
+export const MyFigure = ({player, isLoading}) => {
     return (
         <Link to='/profile'>
         <Figure>
-            {/* <Figure.Image
-                width={171}
-                height={180}
-                alt={player.name} 
-                src={player.image} 
-                rounded
-                style={{cursor: "pointer"}}
-            /> */}
-            <MyBadge player={player}></MyBadge>
-            <Figure.Caption style={{textAlign: "center"}}>
-                <Button variant="link" style={{color: "grey"}}>
-                <div style={{textTransform: 'uppercase'}}>{player.name} - ({player.price})</div>
-                {/* <div>{player.price}</div> */}
-                <div>+{player.percent}</div>
-                </Button>
-            </Figure.Caption>
+            <MyBadge player={player} isLoading={isLoading}></MyBadge>
+            {!isLoading &&
+                <Figure.Caption style={{textAlign: "center"}}>
+                    <Button variant="link" style={{color: "grey"}}>
+                    <div style={{textTransform: 'uppercase'}}>{player.name} - ({player.price})</div>
+                    <div>+{player.percent}</div>
+                    </Button>
+                </Figure.Caption>
+            }
         </Figure>
         </Link>
     );

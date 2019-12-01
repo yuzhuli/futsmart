@@ -234,7 +234,7 @@ export const MyBadge = ({player, isLoading}) => {
     return (
         // <Container>
             <div style={bgDivStyle}>
-                {isLoading &&
+                {!isLoading &&
                     <>
                     <div style={scoreItemStyle}>{player.totalScore}</div>
                     <div style={positionItemStyle}>{player.position}</div>
