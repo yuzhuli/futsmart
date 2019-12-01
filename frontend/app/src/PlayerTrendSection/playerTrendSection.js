@@ -9,7 +9,6 @@ export const PlayerTrendSection = () => {
         fetch("http://localhost:3001/trendy_players")
         .then(response => response.json())
         .then(data => {
-            // console.log(data["top-increasing-gold"][0]);
             setPlayers(data);
             setIsLoading(false);
         })
@@ -24,6 +23,7 @@ export const PlayerTrendSection = () => {
         {!isLoading &&
             <SingleTypeSubsection 
                 playerType="Gold" 
+                bgImgScr = "https://i.imgur.com/vosofhc.jpg"
                 topFiveUp={players["top-increasing-gold"].slice(0, 5)}
                 topFiveDown={players["top-decreasing-gold"].slice(0, 5)}
                 isLoading={isLoading}
@@ -33,6 +33,7 @@ export const PlayerTrendSection = () => {
         {!isLoading &&
             <SingleTypeSubsection
                 playerType="Icon"
+                bgImgScr = "https://i.imgur.com/V3ajLIp.png"
                 topFiveUp={players["top-increasing-icon"].slice(0, 5)}
                 topFiveDown={players["top-decreasing-icon"].slice(0, 5)}
                 isLoading={isLoading}

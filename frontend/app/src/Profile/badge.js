@@ -1,8 +1,5 @@
 import React from 'react';
-import messi from '../images/messi.png';
 import {Image,} from 'react-bootstrap';
-import flag from '../images/flag.png';
-import club from '../images/club.png';
 
 export const MyBadge = ({player, isLoading}) => {
     const bgDivStyle = {
@@ -232,7 +229,6 @@ export const MyBadge = ({player, isLoading}) => {
     }
 
     return (
-        // <Container>
             <div style={bgDivStyle}>
                 {!isLoading &&
                     <>
@@ -262,6 +258,5 @@ export const MyBadge = ({player, isLoading}) => {
                     </>
                 }
             </div>
-        // </Container>
     );
 }
