@@ -11,8 +11,9 @@ export const MyBadge = ({playerType, player, isLoading}) => {
     }
 
     if (playerType === "Icon") {
-        badgeBgdImg = "https://i.imgur.com/SDgM841.png";
-        fontColor = "#e1c775";
+        badgeBgdImg = "https://i.imgur.com/NBCWi42.png";
+        // fontColor = "#e1c775";
+        fontColor = "#625217";
     }
 
     const bgDivStyle = {

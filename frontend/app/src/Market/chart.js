@@ -41,8 +41,8 @@ const options_template = {
 };
 
   indices.forEach(element => {
-    data_template.labels.push(element[0]);
-    data_template.datasets[0].data.push(element[1]);
+    data_template.labels.push(element['timestamp']);
+    data_template.datasets[0].data.push(element['index_value']);
   });
   // console.log(data_template.labels);
   if (chartType == 'sevenDays') {
