@@ -1,14 +1,27 @@
 import React from 'react';
 import {Image,} from 'react-bootstrap';
 
-export const MyBadge = ({player, isLoading}) => {
+export const MyBadge = ({playerType, player, isLoading}) => {
+    var badgeBgdImg = "";
+    var fontColor = "";
+
+    if (playerType === "Gold") {
+        badgeBgdImg = "https://i.imgur.com/s2A3Icy.png";
+        fontColor = "#4d331f";
+    }
+
+    if (playerType === "Icon") {
+        badgeBgdImg = "https://i.imgur.com/SDgM841.png";
+        fontColor = "#e1c775";
+    }
+
     const bgDivStyle = {
         position: 'relative',
         top: 0,
         left: 0,
         width: '220px',
         height: '305px',
-        backgroundImage: 'url("https://i.imgur.com/s2A3Icy.png")',
+        backgroundImage: `url(${badgeBgdImg})`,
         backgroundSize: '105%',
         backgroundPositionX: '-6px',
         backgroundPositionY: '-5px',
@@ -19,7 +32,7 @@ export const MyBadge = ({player, isLoading}) => {
 
     const scoreItemStyle = {
         position: 'absolute',
-        color: '#4d331f ',
+        color: fontColor,
         width: '45px',
         left: '42px',
         textAlign: 'center',
@@ -42,7 +55,7 @@ export const MyBadge = ({player, isLoading}) => {
         fontWeight: 700,
         fontFamily: '"DINPro-Cond",Arial,sans-serif !important',
         zIndex: 1,
-        color: '#4d331f',
+        color: fontColor,
         lineHeight: '18px',
         display: 'block',
         textTransform: 'uppercase',
@@ -114,7 +127,7 @@ export const MyBadge = ({player, isLoading}) => {
         fontSize: '22px',
         zIndex: 1,
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
     }
 
     const threeHorLineDiv = {
@@ -138,7 +151,7 @@ export const MyBadge = ({player, isLoading}) => {
         top: '195px',
         lineHeight: '18px',
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
         textAlign: 'left',
         textTransform: 'uppercase',
     }
@@ -151,7 +164,7 @@ export const MyBadge = ({player, isLoading}) => {
         top: '215px',
         lineHeight: '18px',
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
         textAlign: 'left',
         textTransform: 'uppercase',
     }
@@ -164,7 +177,7 @@ export const MyBadge = ({player, isLoading}) => {
         top: '235px',
         lineHeight: '18px',
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
         textAlign: 'left',
         textTransform: 'uppercase',
     }
@@ -177,7 +190,7 @@ export const MyBadge = ({player, isLoading}) => {
         top: '195px',
         lineHeight: '18px',
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
         textAlign: 'left',
         textTransform: 'uppercase',
     }
@@ -190,7 +203,7 @@ export const MyBadge = ({player, isLoading}) => {
         top: '215px',
         lineHeight: '18px',
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
         textAlign: 'left',
         textTransform: 'uppercase',
     }
@@ -203,7 +216,7 @@ export const MyBadge = ({player, isLoading}) => {
         top: '235px',
         lineHeight: '18px',
         display: 'block',
-        color: '#4d331f',
+        color: fontColor,
         textAlign: 'left',
         textTransform: 'uppercase',
     }
