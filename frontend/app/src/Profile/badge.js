@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image,} from 'react-bootstrap';
 
-export const MyBadge = ({playerType, player, isLoading}) => {
+export const MyBadge = ({playerType, player, isLoading, lastName}) => {
     var badgeBgdImg = "";
     var fontColor = "";
 
@@ -246,27 +246,27 @@ export const MyBadge = ({playerType, player, isLoading}) => {
             <div style={bgDivStyle}>
                 {!isLoading &&
                     <>
-                    <div style={scoreItemStyle}>{player.totalScore}</div>
+                    <div style={scoreItemStyle}>{player.rating}</div>
                     <div style={positionItemStyle}>{player.position}</div>
                     <div style={topOneHorLineStyle} />
                     <div style={countryDivStyle}>
-                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={player.country}/>
+                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={'https://i.imgur.com/obecPMW.png'}/>
                     </div>
                     <div style={topTwoHorLineStyle} />
                     <div style={clubDivStyle}>
-                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={player.club}/>
+                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={'https://i.imgur.com/Kc3ZyJ3.png'}/>
                     </div>
                     <div style={picDivStyle}>
-                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={player.pic}/>
+                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={'https://i.imgur.com/ebHLKjb.png'}/>
                     </div>
-                    <div style={nameDivStyle}>{player.name}</div>
+                    <div style={nameDivStyle}>{lastName}</div>
                     <div style={threeHorLineDiv} />
-                    <div style={paceStyle}>{player.pac} PAC</div>
-                    <div style={shoStyle}>{player.sho} SHO</div>
-                    <div style={pasStyle}>{player.pas} pas</div>
-                    <div style={driStyle}>{player.dri} dri</div>
-                    <div style={defStyle}>{player.def} def</div>
-                    <div style={phyStyle}>{player.phy} phy</div>
+                    <div style={paceStyle}>{player.main_pace} PAC</div>
+                    <div style={shoStyle}>{player.main_shooting} SHO</div>
+                    <div style={pasStyle}>{player.main_passing} pas</div>
+                    <div style={driStyle}>{player.main_dribbling} dri</div>
+                    <div style={defStyle}>{player.main_defending} def</div>
+                    <div style={phyStyle}>{player.main_physicality} phy</div>
                     <div style={vertLineStyle}></div>
                     <div style={bottomLineStyle}></div>
                     </>
