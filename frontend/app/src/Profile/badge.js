@@ -250,14 +250,14 @@ export const MyBadge = ({playerType, player, isLoading, lastName}) => {
                     <div style={positionItemStyle}>{player.position}</div>
                     <div style={topOneHorLineStyle} />
                     <div style={countryDivStyle}>
-                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={'https://i.imgur.com/obecPMW.png'}/>
+                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={player.nation_img_url}/>
                     </div>
                     <div style={topTwoHorLineStyle} />
                     <div style={clubDivStyle}>
-                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={'https://i.imgur.com/Kc3ZyJ3.png'}/>
+                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={player.club_img_url}/>
                     </div>
                     <div style={picDivStyle}>
-                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={'https://i.imgur.com/ebHLKjb.png'}/>
+                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={player.player_img_url}/>
                     </div>
                     <div style={nameDivStyle}>{lastName}</div>
                     <div style={threeHorLineDiv} />

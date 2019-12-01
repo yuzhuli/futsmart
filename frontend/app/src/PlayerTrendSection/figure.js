@@ -7,7 +7,9 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
     const trendSign = priceType === "Up" ? "+" : "-";
     const nameArr = player['Name'].split(' ');
     const lastName = nameArr[nameArr.length - 1];
-    const percentage = Math.abs(player['price_diff_percentage'] * 100).toString() + "%";
+    const percentage = Math.abs(player['price_diff_percentage']) * 100;
+    const rounded_percentage = percentage.toFixed(2) + "%";
+    // Math.round(player['price_diff_percentage'] * 100)
 
     return (
         <Link to='/profile'>
@@ -16,8 +18,9 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
             {!isLoading &&
                 <Figure.Caption style={{textAlign: "center"}}>
                     <Button variant="link" style={{color: "grey"}}>
-                    <div style={{textTransform: 'uppercase'}}>{lastName} - (100)</div>
-                    <div>{trendSign} {percentage}</div>
+                    <div style={{textTransform: 'uppercase'}}>{lastName}</div>
+                    <div>Price: {player['price']}</div>
+                    <div>{trendSign} {rounded_percentage}</div>
                     </Button>
                 </Figure.Caption>
             }
