@@ -60,7 +60,7 @@ app.get('/trendy_players', (req, res) => {
     Promise.all(promises).then(results => {
         for (var i = 0; i < results.length; i++) {
             if (results[i]) {
-                players[categories[i]] = results[i];
+                players[categories[i]] = JSON.parse(results[i]);
             } else {
                 throw new Error('Missing indices for: ' + categories[i]);
             }

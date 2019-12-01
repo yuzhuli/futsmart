@@ -10,12 +10,14 @@ export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) 
                 <Navbar.Brand >Price {priceType} - Top 5</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav>
-                        <Link to={{pathname: `/list/${playerType}`}}>See All</Link>
-                        <Nav.Link href="/list/${playerType}">See All</Nav.Link>
+                        <Nav.Link to={{pathname: `/list/${playerType}`}}>See All</Nav.Link>
+                        {/* <Nav.Link href="/list/${playerType}">See All</Nav.Link> */}
                     </Nav>
             </Navbar>
             <Row>
-                {topFivePlayers.map(player => {
+
+                {isLoading == false &&
+                    topFivePlayers.map(player => {
                     return (
                         <Col key={player.name}>
                             <MyFigure player={player} isLoading={isLoading}></MyFigure>

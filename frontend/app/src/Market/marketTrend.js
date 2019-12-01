@@ -28,7 +28,7 @@ export const MarketTrend = () => {
         fetch("http://localhost:3001/indices").then(response =>
             response.json()).then(data => {
                 setIndices(data);
-                console.log('data: ', data)
+                // console.log('data: ', data)
             }).catch(error => console.log('error when fetching data from api: ', error));
     }, []);
 

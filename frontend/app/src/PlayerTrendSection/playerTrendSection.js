@@ -6,30 +6,38 @@ export const PlayerTrendSection = () => {
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
-        fetch("/trendy_players")
+        fetch("http://localhost:3001/trendy_players")
         .then(response => response.json())
         .then(data => {
-            setIsLoading(false);
+            // console.log(data["top-increasing-gold"][0]);
             setPlayers(data);
+            setIsLoading(false);
         })
         .catch();
     }, []);
 
     return (
         <>
-        <SingleTypeSubsection 
-            playerType="Gold" 
-            topFiveUp={players['top-increasing-gold'].slice(0, 5)}
-            topFiveDown={players['top-decreasing-gold'].slice(0, 5)}
-            isLoading={isLoading}
-        />
+        {isLoading &&
+            <p>loading data</p>
+        }
+        {!isLoading &&
+            <SingleTypeSubsection 
+                playerType="Gold" 
+                topFiveUp={players["top-increasing-gold"].slice(0, 5)}
+                topFiveDown={players["top-decreasing-gold"].slice(0, 5)}
+                isLoading={isLoading}
+            />
+        }
         <br/>
-        <SingleTypeSubsection
-            playerType="Icon"
-            topFiveUp={players['top-increasing-icon'].slice(0, 5)}
-            topFiveDown={players['top-decreasing-icon'].slice(0, 5)}
-            isLoading={isLoading}
-        />
+        {!isLoading &&
+            <SingleTypeSubsection
+                playerType="Icon"
+                topFiveUp={players["top-increasing-icon"].slice(0, 5)}
+                topFiveDown={players["top-decreasing-icon"].slice(0, 5)}
+                isLoading={isLoading}
+            />
+        }
         </>
     );
 }

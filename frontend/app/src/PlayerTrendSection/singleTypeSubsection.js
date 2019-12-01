@@ -9,8 +9,8 @@ export const SingleTypeSubsection = ({playerType, topFiveUp, topFiveDown, isLoad
         <div style={{width: '1250px', margin: '0 auto'}}>
             <SectionHeader header={playerType} />
             <br/>
-            <MyPlayerRow playerType={playerType} priceType='Up' topFivePlayers={topFiveUp} isLoadin={isLoading}/>
-            <MyPlayerRow playerType={playerType} priceType='Down' topFivePlayers={topFiveDown} isLoadin={isLoading}/>
+            <MyPlayerRow playerType={playerType} priceType='Up' topFivePlayers={topFiveUp} isLoading={isLoading}/>
+            <MyPlayerRow playerType={playerType} priceType='Down' topFivePlayers={topFiveDown} isLoading={isLoading}/>
             {/* <Navbar>
                 <Navbar.Brand >Top Up</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>

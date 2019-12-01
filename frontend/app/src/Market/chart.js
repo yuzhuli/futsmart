@@ -44,7 +44,7 @@ const options_template = {
     data_template.labels.push(element[0]);
     data_template.datasets[0].data.push(element[1]);
   });
-  console.log(data_template.labels);
+  // console.log(data_template.labels);
   if (chartType == 'sevenDays') {
     options_template.scales.xAxes[0].ticks.maxTicksLimit = 14;
     options_template.scales.xAxes[0].ticks.stepSize = 2;
