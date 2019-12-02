@@ -10,7 +10,8 @@ export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) 
                 <Navbar.Brand >Price {priceType} - Top 5</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav>
-                        <Nav.Link to={{pathname: `/list/${playerType}`}}>See All</Nav.Link>
+                        {/* <Nav.Link to={`/list/${playerType}`}>See All</Nav.Link> */}
+                        <Nav.Link href={`/list/${playerType}`}>See All</Nav.Link>
                     </Nav>
             </Navbar>
             <Row>

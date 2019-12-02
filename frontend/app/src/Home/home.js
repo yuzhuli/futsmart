@@ -8,7 +8,7 @@ export const Home = () => {
             <MarketTrend />
             <br/>
 
-            {/* <PlayerTrendSection /> */}
+            <PlayerTrendSection />
         </div>
     );
 }

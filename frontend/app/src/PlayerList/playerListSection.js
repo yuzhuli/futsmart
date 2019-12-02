@@ -35,12 +35,12 @@ export const PlayerListSection = (props) => {
         <Container>
         <h1>{type} Player List</h1>
         <Row>
-            <Col>
+            <Col key="up">
                 {!isLoading &&
                 <SingleTypePlayerList priceType="Up" players={increasingPlayers}></SingleTypePlayerList>
                 }
             </Col>
-            <Col>
+            <Col key="down">
                 {!isLoading &&
                 <SingleTypePlayerList priceType="Down" players={decreasingPlayers}></SingleTypePlayerList>
                 }
