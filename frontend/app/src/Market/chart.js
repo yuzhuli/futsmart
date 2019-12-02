@@ -3,11 +3,9 @@ import {Line} from 'react-chartjs-2';
 
 function convert_to_date(seconds) {
   const date = new Date(seconds * 1000);
-  const month = date.getMonth();
+  const month = date.getMonth() + 1;
   const day = date.getDate();
   const result = month.toString() + '/' + day.toString();
-  console.log(month);
-  console.log(date);
   return result
 }
 
@@ -43,8 +41,8 @@ const options_template = {
   scales: {
     xAxes: [{
       ticks: {
-        maxTicksLimit: 0,
-        stepSize: 0,
+        // maxTicksLimit: 0,
+        // stepSize: 2,
       }
     }]
   }
@@ -61,8 +59,8 @@ const options_template = {
     options_template.scales.xAxes[0].ticks.stepSize = 2;
   } 
   if (chartType == 'all') {
-    options_template.scales.xAxes[0].ticks.maxTicksLimit = 12;
-    options_template.scales.xAxes[0].ticks.stepSize = 2;
+    options_template.scales.xAxes[0].ticks.maxTicksLimit = 20;
+    // options_template.scales.xAxes[0].ticks.stepSize = 2;
   }
 
   return (

@@ -12,7 +12,7 @@ export const PlayerTrendSection = () => {
             setPlayers(data);
             setIsLoading(false);
         })
-        .catch();
+        .catch(err => {console.log(err);});
     }, []);
 
     return (

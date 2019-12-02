@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import { MyFigure } from "./figure";
 
 export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) => {
