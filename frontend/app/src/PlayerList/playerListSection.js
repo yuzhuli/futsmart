@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {SingleTypePlayerList} from './singleTypePlayerList';
-import { checkPropTypes } from 'prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 
 export const PlayerListSection = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [increasingPlayers, setIncreasingPlayers] = useState([]);
     const [decreasingPlayers, setDecreasingPlayers] = useState([]);
+    const type = props.match.params.type === 'gold' ? 'Gold' :  'Icon';
 
 
     useEffect(() => {
@@ -14,13 +14,13 @@ export const PlayerListSection = (props) => {
         .then((response) => response.json())
         .then((data) => {
             console.log('data:', data);
-            if (props.match.params.type === 'gold') {
+            if (type === 'Gold') {
                 setIncreasingPlayers(data['top_increasing_gold']);
                 setDecreasingPlayers(data['top_decreasing_gold']);
                 console.log(increasingPlayers);
                 setIsLoading(false);
             } 
-            if (props.match.params.type === 'icon') {
+            if (type === 'Icon') {
                 setIncreasingPlayers(data['top_increasing_icon']);
                 setDecreasingPlayers(data['top_decreasing_icon']);
                 setIsLoading(false);
@@ -33,7 +33,7 @@ export const PlayerListSection = (props) => {
 
     return (
         <Container>
-        <h1>Player List</h1>
+        <h1>{type} Player List</h1>
         <Row>
             <Col>
                 {!isLoading &&

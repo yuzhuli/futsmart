@@ -9,7 +9,7 @@ export const SingleTypePlayerList = ({priceType, players}) => {
     <Table striped bordered hover>
         <thead>
             <tr style={{backgroundColor: headerColor, color: 'white'}}>
-                <th colSpan="2">Top 20 - Price {priceType}</th>
+                <th colSpan="2">Top Price {priceType}</th>
                 <th>Percentage</th>
             </tr>
         </thead>
@@ -24,7 +24,7 @@ export const SingleTypePlayerList = ({priceType, players}) => {
                             <img src="https://i.imgur.com/ebHLKjb.png" style={{width: '40px', height: '40px'}}></img>
                             {player.Name} ({player.price})
                         </td>
-                        <td style={{color: headerColor}}>{rounded_percentage}</td>
+                        <td style={{color: headerColor}}>{trendSign} {rounded_percentage}</td>
                         </tr>
                     );
             })}
