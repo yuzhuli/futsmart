@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MyBadge } from './badge';
 import { Container, Col, Row } from 'react-bootstrap';
 import { RadarChart } from './radarChart';
+import { SingleSkillTable } from './singleSkillTable';
 
 
 
@@ -40,18 +41,41 @@ export const Profile = (props) => {
     }
 
     return (
-        <div style={{width: '660px', height: '450', position: 'relative', top: '10px', left: '10px'}}>
-            {/* { !isLoading && */}
-                <Row>
-                    <Col key={player.Name+"profileBadge"}>
-                        <MyBadge playerType="Gold" player={player} isLoading={false} lastName="Messi"/>
-                    </Col>
-                    <Col key={player.Name+"profileRadar"}>
-                        <RadarChart player={player}></RadarChart>
-                    </Col>
-                </Row>
+        <Container style={{position: 'relative'}}>
+            <h2>{player.Name} Profile</h2>
+            <div style={{position: 'absolute', width: '100%', top: '40px', height: '1px', left: '0', background: '#645215', opacity: 0.8}}/>
+            <div style={{width: '225px', position: 'absolute', top: '60px'}}>
+                <MyBadge playerType="Gold" player={player} isLoading={false} lastName="Messi"/>
+            </div>
+            <div style={{ left: '150px', position: 'absolute', top: '45px', width: '800px', height: '450px'}}>
                 <RadarChart player={player}></RadarChart>
-            {/* } */}
-        </div>
+            </div>
+            <div style={{position: 'absolute', width: '100%', top: '460px', height: '1px', left: '0', background: '#645215', opacity: 0.8}}/>
+            <div>
+                <div style={{position: 'absolute', top: '490px', width: '300px', height: '400px'}}>
+                    <SingleSkillTable/>
+                </div>
+
+                <div style={{position: 'absolute', top: '490px', left: '350px', width: '300px', height: '400px'}}>
+                    <SingleSkillTable/>
+                </div>
+
+                <div style={{position: 'absolute', top: '490px', left: '700px', width: '300px', height: '400px'}}>
+                    <SingleSkillTable/>
+                </div>
+                
+                <div style={{position: 'absolute', top: '900px', width: '300px', height: '400px'}}>
+                    <SingleSkillTable/>
+                </div>
+
+                <div style={{position: 'absolute', top: '900px', left: '350px', width: '300px', height: '400px'}}>
+                    <SingleSkillTable/>
+                </div>
+
+                <div style={{position: 'absolute', top: '900px', left: '700px', width: '300px', height: '400px'}}>
+                    <SingleSkillTable/>
+                </div>
+            </div>
+        </Container>
     );
 }
