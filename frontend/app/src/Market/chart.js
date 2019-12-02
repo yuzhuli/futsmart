@@ -1,6 +1,16 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2';
-  
+
+function convert_to_date(seconds) {
+  const date = new Date(seconds * 1000);
+  const month = date.getMonth();
+  const day = date.getDate();
+  const result = month.toString() + '/' + day.toString();
+  console.log(month);
+  console.log(date);
+  return result
+}
+
 export const IndexLineChart = ({indices, chartType}) => {
   const data_template = {
     labels: [],
@@ -41,7 +51,8 @@ const options_template = {
 };
 
   indices.forEach(element => {
-    data_template.labels.push(element['timestamp']);
+    const date = convert_to_date(element['timestamp']);
+    data_template.labels.push(date);
     data_template.datasets[0].data.push(element['index_value']);
   });
   // console.log(data_template.labels);
