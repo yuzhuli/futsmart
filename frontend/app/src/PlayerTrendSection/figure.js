@@ -16,7 +16,7 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
         <Figure>
             <MyBadge playerType={playerType} player={player} isLoading={isLoading} lastName={lastName}></MyBadge>
             {!isLoading &&
-                <Figure.Caption style={{textAlign: "center"}}>
+                <Figure.Caption href={"/profile/1234"} style={{textAlign: "center"}}>
                     <Button variant="link" style={{color: "grey"}}>
                     <div style={{textTransform: 'uppercase'}}>{lastName}</div>
                     <div>Price: {player['price']}</div>

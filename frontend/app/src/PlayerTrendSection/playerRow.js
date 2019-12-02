@@ -19,7 +19,7 @@ export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) 
                 {!isLoading &&
                     topFivePlayers.map(player => {
                     return (
-                        <Col key={player.name}>
+                        <Col key={player.Name + Math.random().toString()}>
                             <MyFigure playerType={playerType} priceType={priceType} player={player} isLoading={isLoading}></MyFigure>
                         </Col>
                     );
