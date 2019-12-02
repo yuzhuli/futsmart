@@ -5,6 +5,7 @@ const redis = require('redis');
 
 const app = express();
 app.use(cors());
+app.use('/static', express.static('public'));
 // const bodyParser = require('body-parser');
 
 const client = redis.createClient({
