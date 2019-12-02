@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Tab, Tabs, Container} from 'react-bootstrap';
 import {IndexLineChart} from './chart.js';
 

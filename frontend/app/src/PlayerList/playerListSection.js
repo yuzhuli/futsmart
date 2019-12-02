@@ -13,14 +13,12 @@ export const PlayerListSection = (props) => {
         fetch("http://localhost:3001/trendy_players")
         .then((response) => response.json())
         .then((data) => {
-            console.log('data:', data);
-            if (type === 'Gold') {
+            if (props.match.params.type === 'Gold') {
                 setIncreasingPlayers(data['top_increasing_gold']);
                 setDecreasingPlayers(data['top_decreasing_gold']);
-                console.log(increasingPlayers);
                 setIsLoading(false);
             } 
-            if (type === 'Icon') {
+            if (props.match.params.type === 'Icon') {
                 setIncreasingPlayers(data['top_increasing_icon']);
                 setDecreasingPlayers(data['top_decreasing_icon']);
                 setIsLoading(false);
@@ -29,7 +27,7 @@ export const PlayerListSection = (props) => {
         .catch(err => {
             console.log(err);
         })
-    }, []);
+    }, [increasingPlayers, decreasingPlayers, isLoading, props]);
 
     return (
         <Container>
@@ -46,11 +44,6 @@ export const PlayerListSection = (props) => {
                 }
             </Col>
         </Row>
-        {/* <div style={{width: '600px'}}>
-        {!isLoading &&
-            <SingleTypePlayerList priceType="Up" players={increasingPlayers}></SingleTypePlayerList>
-        }
-        </div> */}
         </Container>
     );
 }

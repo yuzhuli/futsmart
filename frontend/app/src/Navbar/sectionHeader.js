@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Container, Navbar } from 'react-bootstrap';
+import React from 'react';
+import {Navbar } from 'react-bootstrap';
 
 export const SectionHeader =({header}) => {
     return (

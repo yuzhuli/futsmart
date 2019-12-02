@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Tabs, Tab, Nav } from "react-bootstrap";
-import { TimeRangeTab } from "./timeRangeTab";
+// import { TimeRangeTab } from "./timeRangeTab";
 import {IndexLineChart} from './chart.js';
 
 // function convert_str_data(str_data) {

@@ -54,11 +54,11 @@ const options_template = {
     data_template.datasets[0].data.push(element['index_value']);
   });
   // console.log(data_template.labels);
-  if (chartType == 'sevenDays') {
+  if (chartType === 'sevenDays') {
     options_template.scales.xAxes[0].ticks.maxTicksLimit = 14;
     options_template.scales.xAxes[0].ticks.stepSize = 2;
   } 
-  if (chartType == 'all') {
+  if (chartType === 'all') {
     options_template.scales.xAxes[0].ticks.maxTicksLimit = 20;
     // options_template.scales.xAxes[0].ticks.stepSize = 2;
   }
