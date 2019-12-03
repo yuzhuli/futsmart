@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import {SingleTypePlayerList} from './singleTypePlayerList';
-import { Container, Row, Col } from 'react-bootstrap';
 
 const PLAYER_LIST_TYPE_GOLD = 'Gold';
 const PLAYER_LIST_TYPE_ICON = 'Icon';
@@ -14,7 +14,7 @@ export const PlayerListSection = (props) => {
     const type = props.match.params.type.toLowerCase() === 'gold' ? PLAYER_LIST_TYPE_GOLD :  PLAYER_LIST_TYPE_ICON;
 
     useEffect(() => {
-        fetch("http://localhost:3001/trendy_players")
+        fetch("http://localhost:3001/api/trendy_players")
         .then((response) => response.json())
         .then((data) => {
             setIncreasingPlayersGold(data['top_increasing_gold']);

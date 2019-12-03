@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Container} from 'react-bootstrap';
 import { MyBadge } from './badge';
-import { Container, Col, Row } from 'react-bootstrap';
 import { RadarChart } from './radarChart';
 import { SingleSkillTable } from './singleSkillTable';
-
-
 
 export const Profile = (props) => {
     // uncomment the following when fetch player by id is implemented
@@ -12,7 +10,7 @@ export const Profile = (props) => {
     // const [player, setPlayer] = useState(null);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:3001/player/${props.match.params.playerid}`)
+    //     fetch(`/api/player/${props.match.params.playerid}`)
     //     .then(response => response.json())
     //     .then(data => {
     //         setPlayer(data);

@@ -12,16 +12,16 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
     // Math.round(player['price_diff_percentage'] * 100)
 
     return (
-        <Link to='/profile'>
+        <Link to='/profile/1234'>
         <Figure>
             <MyBadge playerType={playerType} player={player} isLoading={isLoading} lastName={lastName}></MyBadge>
             {!isLoading &&
-                <Figure.Caption href={"/profile/1234"} style={{textAlign: "center"}}>
-                    <Button variant="link" style={{color: "grey"}}>
+                <Figure.Caption style={{textAlign: "center"}}>
+                    {/* <Button variant="link" style={{color: "grey"}}> */}
                     <div style={{textTransform: 'uppercase'}}>{lastName}</div>
                     <div>Price: {player['price']}</div>
                     <div>{trendSign} {rounded_percentage}</div>
-                    </Button>
+                    {/* </Button> */}
                 </Figure.Caption>
             }
         </Figure>

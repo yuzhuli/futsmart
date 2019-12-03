@@ -1,7 +1,8 @@
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import './App.css';
-import {Main} from './Main/main';
 import MyNavbar from './Navbar';
+import {Main} from './Main/main';
+import './App.css';
 
 
 function App() {

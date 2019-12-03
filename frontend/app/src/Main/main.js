@@ -8,7 +8,7 @@ export const Main = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home}></Route>
-            <Route exact path="/list/:type" component={PlayerListSection}></Route>
+            <Route path="/list/:type" component={PlayerListSection}></Route>
             <Route path="/profile/:playerid" component={Profile}></Route>
         </Switch>
     );

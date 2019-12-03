@@ -25,7 +25,7 @@ const getAsync = promisify(client.get).bind(client);
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
 // An api endpoint that returns a short list of items
-app.get('/indices', (req, res) => {
+app.get('/api/indices', (req, res) => {
     const categories = ['gold_indices_all', 'icon_indices_all'];
     const indices = {};
     const promises = []
@@ -49,7 +49,7 @@ app.get('/indices', (req, res) => {
     });
 });
 
-app.get('/trendy_players', (req, res) => {
+app.get('/api/trendy_players', (req, res) => {
     const categories = ['top_increasing_gold', 'top_decreasing_gold', 'top_increasing_icon', 'top_decreasing_icon'];
     const players = {};
     const promises = [];

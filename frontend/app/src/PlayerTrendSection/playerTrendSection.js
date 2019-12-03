@@ -6,7 +6,7 @@ export const PlayerTrendSection = () => {
     const [players, setPlayers] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:3001/trendy_players")
+        fetch("http://localhost:3001/api/trendy_players")
         .then(response => response.json())
         .then(data => {
             setPlayers(data);

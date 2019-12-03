@@ -6,13 +6,13 @@ function create_defaul_indices() {
     const categories = ['gold_indices_all', 'icon_indices_all'];
     categories.map(category => {
         if (category.includes('seven')) {
-            for (var i = 0; i < 14; i++) {
+            for (let i = 0; i < 14; i++) {
                 indices[category] += '7/' + (i + 1) + ',' + 10 + ',';
                 indices[category] += 'test, 10,';
             }
         } else {
             indices[category] = [];
-            for (var i = 0; i < 24; i++) {
+            for (let i = 0; i < 24; i++) {
                 indices[category].push({'timestamp': '', 'index_value': 400});
             }
         }
@@ -25,7 +25,7 @@ export const MarketTrend = () => {
     const [indices, setIndices] = useState(default_indices);
 
     useEffect( () => {
-        fetch("http://localhost:3001/indices").then(response =>
+        fetch("http://localhost:3001/api/indices").then(response =>
             response.json()).then(data => {
                 setIndices(data);
                 // console.log('data: ', data)
