@@ -2,20 +2,23 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 export const SingleSkillTable = () => {
-    // const skill = {'PACE':
-    //     [ 
-    //         {'Acceleration': 70},
-    //         {'Sprint Spped': 76}
-    //     ],
-    // }
-    // const skillName = Object.keys(skill)[0];
-    // const subSkills = Object.values(skill)[0];
+    const totalScore = 73;
     const subSkills = [['Positioning', 70], ['Finishing', 76], ['Shot Power', 55], ['Long Shot', 33], ['Volleys', 32], ['Penalties', 36]]
+    let fontColor = 'white';
+    if (totalScore <=60) {
+        fontColor = '#bd2f2f';
+    } else if (totalScore <= 70) {
+        fontColor = '#c8790a';
+    } else if (totalScore <= 80) {
+        fontColor = '#e8b415';
+    } else {
+        fontColor = '#99cf46';
+    }
 
     return (
         <Table>
             <thead>
-                <tr>
+                <tr style={{color: fontColor}}>
                     <th colSpan='2'>SHOOTING</th>
                     <th>73</th>
                 </tr>
