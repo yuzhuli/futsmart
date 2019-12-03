@@ -29,10 +29,10 @@ export const PlayerListSection = (props) => {
     }, []);
 
     return (
-        <div style={{width: '1250px', margin: '0 auto', position: 'relative'}}>
+        <div style={{width: '1300px', margin: '0 auto', position: 'relative'}}>
             <br/>
             <div style={{fontWeight: 800, fontSize: '24px', fontFamily: 'sans-serif !important', color: 'rgb(72, 72, 72)'}}>
-                {type} Player List
+                Fluctuation Ranking - {type} Players
             </div>
             <br/>
             <Row>

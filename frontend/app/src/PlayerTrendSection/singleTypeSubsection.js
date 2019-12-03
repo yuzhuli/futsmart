@@ -7,7 +7,7 @@ export const SingleTypeSubsection = ({playerType, topFiveUp, topFiveDown, isLoad
             <div style={{position: 'absolute', width: '100%', height: '1px', left: '0', background: '#645215', opacity: 0.8}}/>
             <br/>
             <div style={{fontWeight: 800, fontSize: '24px', fontFamily: 'sans-serif !important', color: 'rgb(72, 72, 72)'}}>
-                {playerType} Players
+                Fluctuation Ranking - {playerType} Players
             </div>
             <br/>
             <MyPlayerRow playerType={playerType} priceType='Up' topFivePlayers={topFiveUp} isLoading={isLoading}/>

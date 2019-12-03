@@ -12,7 +12,7 @@ class MyNavbar extends React.Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         {/* <Nav.Link href="#link">Link</Nav.Link> */}
-                        <NavDropdown title="Flucuation Rankings" id="basic-nav-dropdown">
+                        <NavDropdown title="Fluctuation Rankings" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/list/gold">Gold Players</NavDropdown.Item>
                             <NavDropdown.Item href="/list/icon">Icon Players</NavDropdown.Item>
                             {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>

@@ -22,8 +22,15 @@ export const SingleTypePlayerList = ({priceType, players}) => {
                         <tr>
                         <td colSpan="2">
                             <img src="https://i.imgur.com/ebHLKjb.png" style={{width: '40px', height: '40px'}}></img>
+                            <img src="https://i.imgur.com/obecPMW.png" style={{width: '30px', height: '25px'}}></img>
+                            <span> </span>
+                            <img src="https://i.imgur.com/Kc3ZyJ3.png" style={{width: '30px', height: '30px'}}></img>
+                            <span> </span>
                             {player.Name} ({player.price})
                         </td>
+                        {/* <td>
+                            <img></img>
+                        </td> */}
                         <td style={{color: headerColor}}>{trendSign} {rounded_percentage}</td>
                         </tr>
                     );
