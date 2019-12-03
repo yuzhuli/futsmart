@@ -23,17 +23,16 @@ export const PlayerTrendSection = () => {
         {!isLoading &&
             <SingleTypeSubsection 
                 playerType="Gold" 
-                bgImgScr = "https://i.imgur.com/vosofhc.jpg"
+                bgImgScr = "https://i.imgur.com/FIt8EOP.png"
                 topFiveUp={players["top_increasing_gold"].slice(0, 5)}
                 topFiveDown={players["top_decreasing_gold"].slice(0, 5)}
                 isLoading={isLoading}
             />
         }
-        <br/>
         {!isLoading &&
             <SingleTypeSubsection
                 playerType="Icon"
-                bgImgScr = "https://i.imgur.com/V3ajLIp.png"
+                bgImgScr = "https://i.imgur.com/X2sTkva.png"
                 topFiveUp={players["top_increasing_icon"].slice(0, 5)}
                 topFiveDown={players["top_decreasing_icon"].slice(0, 5)}
                 isLoading={isLoading}

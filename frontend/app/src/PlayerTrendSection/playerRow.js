@@ -7,11 +7,15 @@ export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) 
     return (
         <>
             <Navbar>
-                <Navbar.Brand >Price {priceType} - Top 5</Navbar.Brand>
+                <Navbar.Brand style={{fontWeight: 500, fontSize: '20px', fontFamily: 'sans-serif !important', color: 'rgb(72, 72, 72)',}}>
+                    Price {priceType} - Top 5
+                </Navbar.Brand >
                     <Nav className="mr-auto"></Nav>
                     <Nav>
                         {/* <Nav.Link to={`/list/${playerType}`}>See All</Nav.Link> */}
-                        <Nav.Link href={`/list/${playerType}`}>See All</Nav.Link>
+                        <Nav.Link href={`/list/${playerType}`} style={{fontWeight: 600, fontSize: '17px', fontFamily: 'sans-serif !important', color: 'rgb(0, 132, 137)',}}>
+                            See All >
+                        </Nav.Link>
                     </Nav>
             </Navbar>
             <Row>

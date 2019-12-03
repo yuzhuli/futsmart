@@ -7,6 +7,8 @@ export const Home = () => {
         <div>
             <MarketTrend />
             <br/>
+            <br/>
+            <br/>   
 
             <PlayerTrendSection />
         </div>
