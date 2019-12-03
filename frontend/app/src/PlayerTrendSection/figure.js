@@ -17,11 +17,11 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
             <MyBadge playerType={playerType} player={player} isLoading={isLoading} lastName={lastName}></MyBadge>
             {!isLoading &&
                 <Figure.Caption style={{textAlign: "center"}}>
-                    {/* <Button variant="link" style={{color: "grey"}}> */}
+                    <Button variant="link" style={{color: "grey"}}>
                     <div style={{textTransform: 'uppercase'}}>{lastName}</div>
                     <div>Price: {player['price']}</div>
                     <div>{trendSign} {rounded_percentage}</div>
-                    {/* </Button> */}
+                    </Button>
                 </Figure.Caption>
             }
         </Figure>
