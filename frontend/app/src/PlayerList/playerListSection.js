@@ -2,48 +2,51 @@ import React, { useState, useEffect } from 'react';
 import {SingleTypePlayerList} from './singleTypePlayerList';
 import { Container, Row, Col } from 'react-bootstrap';
 
+const PLAYER_LIST_TYPE_GOLD = 'Gold';
+const PLAYER_LIST_TYPE_ICON = 'Icon';
+
 export const PlayerListSection = (props) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [increasingPlayers, setIncreasingPlayers] = useState([]);
-    const [decreasingPlayers, setDecreasingPlayers] = useState([]);
-    const type = props.match.params.type === 'gold' ? 'Gold' :  'Icon';
-
+    const [increasingPlayersGold, setIncreasingPlayersGold] = useState([]);
+    const [decreasingPlayersGold, setDecreasingPlayersGold] = useState([]);
+    const [increasingPlayersIcon, setIncreasingPlayersIcon] = useState([]);
+    const [decreasingPlayersIcon, setDecreasingPlayersIcon] = useState([]);
+    const type = props.match.params.type.toLowerCase() === 'gold' ? PLAYER_LIST_TYPE_GOLD :  PLAYER_LIST_TYPE_ICON;
 
     useEffect(() => {
         fetch("http://localhost:3001/trendy_players")
         .then((response) => response.json())
         .then((data) => {
-            if (props.match.params.type === 'Gold') {
-                setIncreasingPlayers(data['top_increasing_gold']);
-                setDecreasingPlayers(data['top_decreasing_gold']);
-                setIsLoading(false);
-            } 
-            if (props.match.params.type === 'Icon') {
-                setIncreasingPlayers(data['top_increasing_icon']);
-                setDecreasingPlayers(data['top_decreasing_icon']);
-                setIsLoading(false);
-            }
+            setIncreasingPlayersGold(data['top_increasing_gold']);
+            setDecreasingPlayersGold(data['top_decreasing_gold']);
+            setIncreasingPlayersIcon(data['top_increasing_icon']);
+            setDecreasingPlayersIcon(data['top_decreasing_icon']);
+            setIsLoading(false);
         })
         .catch(err => {
             console.log(err);
         })
-    }, [increasingPlayers, decreasingPlayers, isLoading, props]);
+    }, []);
 
     return (
-        <Container>
-        <h1>{type} Player List</h1>
-        <Row>
-            <Col key="up">
-                {!isLoading &&
-                <SingleTypePlayerList priceType="Up" players={increasingPlayers}></SingleTypePlayerList>
-                }
-            </Col>
-            <Col key="down">
-                {!isLoading &&
-                <SingleTypePlayerList priceType="Down" players={decreasingPlayers}></SingleTypePlayerList>
-                }
-            </Col>
-        </Row>
-        </Container>
+        <div style={{width: '1250px', margin: '0 auto', position: 'relative'}}>
+            <br/>
+            <div style={{fontWeight: 800, fontSize: '24px', fontFamily: 'sans-serif !important', color: 'rgb(72, 72, 72)'}}>
+                {type} Player List
+            </div>
+            <br/>
+            <Row>
+                <Col key="up">
+                    {!isLoading &&
+                    <SingleTypePlayerList priceType="Up" players={type === PLAYER_LIST_TYPE_GOLD ? increasingPlayersGold : increasingPlayersIcon}></SingleTypePlayerList>
+                    }
+                </Col>
+                <Col key="down">
+                    {!isLoading &&
+                    <SingleTypePlayerList priceType="Down" players={type === PLAYER_LIST_TYPE_GOLD ? decreasingPlayersGold : decreasingPlayersIcon}></SingleTypePlayerList>
+                    }
+                </Col>
+            </Row>
+        </div>
     );
 }

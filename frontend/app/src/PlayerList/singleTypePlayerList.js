@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 export const SingleTypePlayerList = ({priceType, players}) => {
-    const headerColor = priceType === 'Up' ? '#008000' : '#DC143C';
+    const headerColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
     const trendSign = priceType === "Up" ? "+" : "-";
 
     return (
