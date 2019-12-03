@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col, Nav, Navbar } from "react-bootstrap";
-// import {Link} from "react-router-dom";
 import { MyFigure } from "./figure";
 
 export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) => {
@@ -12,7 +11,6 @@ export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) 
                 </Navbar.Brand >
                     <Nav className="mr-auto"></Nav>
                     <Nav>
-                        {/* <Nav.Link to={`/list/${playerType}`}>See All</Nav.Link> */}
                         <Nav.Link href={`/list/${playerType}`} style={{fontWeight: 600, fontSize: '17px', fontFamily: 'sans-serif !important', color: 'rgb(0, 132, 137)',}}>
                             See All >
                         </Nav.Link>

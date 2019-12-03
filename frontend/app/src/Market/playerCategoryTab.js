@@ -14,7 +14,7 @@ import {IndexLineChart} from './chart.js';
 
 export const PlayerCategoryTab = ({indices, isLoading}) => {
     return (
-        <Container>
+        <div>
             <Tabs defaultActiveKey="gold" id="player-charts">
                 
                 <Tab eventKey="gold" title="Gold Player Index">
@@ -32,6 +32,6 @@ export const PlayerCategoryTab = ({indices, isLoading}) => {
                     <TimeRangeTab sevenDaysIndices={convert_str_data(indices['informSeven'])} allIndices={convert_str_data(indices['informAll'])} tabType="inform-tab"/>
                 </Tab> */}
             </Tabs>
-        </Container>
+        </div>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 export const SingleSkillTable = () => {
-    const totalScore = 73;
+    const totalScore = 55;
     const subSkills = [['Positioning', 70], ['Finishing', 76], ['Shot Power', 55], ['Long Shot', 33], ['Volleys', 32], ['Penalties', 36]]
     let fontColor = 'white';
     if (totalScore <=60) {
