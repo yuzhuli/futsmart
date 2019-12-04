@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {SingleTypeSubsection} from "./singleTypeSubsection";
 
+const PLAYER_TYPE_GOLD = 'Gold';
+const PLAYER_TYPE_ICON = 'Icon';
+
 export const PlayerTrendSection = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [players, setPlayers] = useState([]);
@@ -22,7 +25,7 @@ export const PlayerTrendSection = () => {
         }
         {!isLoading &&
             <SingleTypeSubsection 
-                playerType="Gold" 
+                playerType={PLAYER_TYPE_GOLD} 
                 topFiveUp={players["top_increasing_gold"].slice(0, 5)}
                 topFiveDown={players["top_decreasing_gold"].slice(0, 5)}
                 isLoading={isLoading}
@@ -30,7 +33,7 @@ export const PlayerTrendSection = () => {
         }
         {!isLoading &&
             <SingleTypeSubsection
-                playerType="Icon"
+                playerType={PLAYER_TYPE_ICON}
                 topFiveUp={players["top_increasing_icon"].slice(0, 5)}
                 topFiveDown={players["top_decreasing_icon"].slice(0, 5)}
                 isLoading={isLoading}
