@@ -2,13 +2,13 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 
 export const SingleTypePlayerList = ({priceType, players}) => {
-    const headerColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
+    const listColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
     const trendSign = priceType === "Up" ? "+" : "-";
 
     return (
     <Table striped bordered hover>
         <thead>
-            <tr style={{backgroundColor: headerColor, color: 'white'}}>
+            <tr style={{backgroundColor: listColor, color: 'white'}}>
                 <th colSpan="2">Top Price {priceType}</th>
                 <th>Percentage</th>
             </tr>
@@ -16,8 +16,6 @@ export const SingleTypePlayerList = ({priceType, players}) => {
         <tbody>
             {
                 players.map(player => {
-                    const percentage = Math.abs(player.price_diff_percentage) * 100;
-                    const rounded_percentage = percentage.toFixed(2) + "%";
                     return (
                         <tr>
                         <td colSpan="2">
@@ -26,12 +24,9 @@ export const SingleTypePlayerList = ({priceType, players}) => {
                             <span> </span>
                             <img src="https://i.imgur.com/Kc3ZyJ3.png" style={{width: '30px', height: '30px'}}></img>
                             <span> </span>
-                            {player.Name} ({player.price})
+                            {player['Name']} ({player['price']})
                         </td>
-                        {/* <td>
-                            <img></img>
-                        </td> */}
-                        <td style={{color: headerColor}}>{trendSign} {rounded_percentage}</td>
+                        <td style={{color: listColor}}>{trendSign} {player['price_diff_percentage']}</td>
                         </tr>
                     );
             })}
