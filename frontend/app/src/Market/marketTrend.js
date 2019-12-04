@@ -2,39 +2,50 @@ import React, { useEffect, useState }from 'react'
 import {PlayerCategoryTab} from './playerCategoryTab'
 
 function create_defaul_indices() {
-    const indices = {}
-    const categories = ['gold_indices_all', 'icon_indices_all'];
-    categories.map(category => {
-        if (category.includes('seven')) {
-            for (let i = 0; i < 14; i++) {
-                indices[category] += '7/' + (i + 1) + ',' + 10 + ',';
-                indices[category] += 'test, 10,';
-            }
-        } else {
-            indices[category] = [];
-            for (let i = 0; i < 24; i++) {
-                indices[category].push({'timestamp': '', 'index_value': 400});
-            }
+    const dummy_indices = {
+        'gold_indices_all': [],
+        'icon_indices_all': []
+    };
+    const dummy_index = {
+        'timestamp': 'Sep 1',
+        'index_value': 400
+    };
+
+    for (const key in dummy_indices) {
+        for (let i = 0; i < 24; i ++) {
+            dummy_indices[key].push(dummy_index);
         }
-    });
-    return indices;
+    }
+    return dummy_indices;
+}
+
+function process_raw_indices(raw_indices) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    for (const key in raw_indices) {
+        raw_indices[key].forEach(element => {
+            const date = new Date(element['timestamp'] * 1000);
+            const month = months[date.getMonth()];
+            const day = date.getDate();
+            element['timestamp'] = month + ' ' + day.toString();
+            const rounded_index_value = parseInt(element['index_value'].toFixed(0));
+            element['index_value'] = rounded_index_value;
+        });
+    }
 }
 
 export const MarketTrend = () => {
-    const default_indices = create_defaul_indices();
-    const [indices, setIndices] = useState(default_indices);
+    const [indices, setIndices] = useState(create_defaul_indices());
 
     useEffect( () => {
         fetch("http://localhost:3001/api/indices").then(response =>
             response.json()).then(data => {
+                process_raw_indices(data)
                 setIndices(data);
-                // console.log('data: ', data)
             }).catch(error => console.log('error when fetching data from api: ', error));
     }, []);
 
     return (
         <div style={{width: '1250px', margin: '0 auto', position: 'relative'}}>
-            {/* <div style={{position: 'absolute', width: '100%', height: '1px', left: '0', background: '#645215', opacity: 0.8}}/> */}
             <br/>
             <div style={{fontWeight: 800, fontSize: '24px', fontFamily: 'sans-serif !important', color: 'rgb(72, 72, 72)'}}>
                 Market Index

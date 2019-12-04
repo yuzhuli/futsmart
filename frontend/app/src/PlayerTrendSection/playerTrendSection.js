@@ -37,10 +37,10 @@ function generate_players() {
             dummy_players[key].push(dummy_player);
         }
     }
-    return dummy_players
+    return dummy_players;
 }
 
-function process_raw_data(raw_players) {
+function process_raw_player_data(raw_players) {
     for (const key in raw_players) {
         raw_players[key].forEach(player => {
             const percentage = Math.abs(player['price_diff_percentage']) * 100;
@@ -61,7 +61,7 @@ export const PlayerTrendSection = () => {
         fetch("http://localhost:3001/api/trendy_players")
         .then(response => response.json())
         .then(data => {
-            process_raw_data(data);
+            process_raw_player_data(data);
             setPlayers(data);
             setIsLoading(false);
         })
