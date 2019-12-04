@@ -5,6 +5,7 @@ import {MyBadge} from "../Profile/badge.js";
 
 export const MyFigure = ({playerType, priceType, player, isLoading}) => {
     const trendSign = priceType === "Up" ? "+" : "-";
+    // const textColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
 
     return (
         <Link to='/profile/1234'>
@@ -21,3 +22,4 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
         </Link>
     );
 };
+
