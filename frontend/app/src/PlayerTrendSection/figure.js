@@ -10,15 +10,13 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
         <Link to='/profile/1234'>
         <Figure>
             <MyBadge playerType={playerType} player={player} isLoading={isLoading} lastName={player['last_name']}></MyBadge>
-            {!isLoading &&
                 <Figure.Caption style={{textAlign: "center"}}>
-                    <Button variant="link" style={{color: "grey"}}>
+                    <Button variant="link" style={{fontFamily: 'sans-serif !important', color: 'rgb(72, 72, 72)'}}>
                     <div style={{textTransform: 'uppercase'}}>{player['last_name']}</div>
                     <div>Price: {player['price']}</div>
                     <div>{trendSign} {player['price_diff_percentage']}</div>
                     </Button>
                 </Figure.Caption>
-            }
         </Figure>
         </Link>
     );

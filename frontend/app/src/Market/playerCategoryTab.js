@@ -3,14 +3,6 @@ import { Tabs, Tab} from "react-bootstrap";
 // import { TimeRangeTab } from "./timeRangeTab";
 import {IndexLineChart} from './chart.js';
 
-// function convert_str_data(str_data) {
-//     const arr_of_str = str_data.split(',');
-//     const arr_of_tuple = []
-//     for (var i = 0; i < arr_of_str.length - 1; i += 2) {
-//         arr_of_tuple.push([arr_of_str[i], parseInt(arr_of_str[i + 1])]);
-//     }
-//     return arr_of_tuple
-// }
 
 export const PlayerCategoryTab = ({indices, isLoading}) => {
     return (

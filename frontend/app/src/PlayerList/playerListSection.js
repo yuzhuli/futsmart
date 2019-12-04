@@ -77,13 +77,13 @@ export const PlayerListSection = (props) => {
             </div>
             <br/>
             <Row>
-                <Col key={PRICE_TYPE_UP}>
+                <Col>
                     <SingleTypePlayerList 
                         priceType={PRICE_TYPE_UP} 
                         players={type === PLAYER_LIST_TYPE_GOLD ? players['top_increasing_gold'] : players['top_increasing_icon']}
                     />
                 </Col>
-                <Col key={PRICE_TYPE_DOWN}>
+                <Col>
                     <SingleTypePlayerList 
                         priceType={PRICE_TYPE_DOWN} 
                         players={type === PLAYER_LIST_TYPE_GOLD ? players['top_decreasing_gold'] : players['top_decreasing_icon']}
