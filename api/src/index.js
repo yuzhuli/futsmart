@@ -79,24 +79,37 @@ app.get('/api/trendy_players', (req, res) => {
     });
 });
 
-app.get('/api/profile/:playerID', (req, res) => {
+app.get('/api/player/:playerID', (req, res) => {
     const playerID = req.params.playerID;
     if (!ObjectID.isValid(playerID)) {
-        throw new Error('Invalid player id');
+        console.log('Invalid player id')
+        res.sendStatus(500);
+        return
     }
-
     MongoDBConnection.getClient((err, mongoClient) => {
         if (err) {
+            console.log('there is err connecting to database');
             res.sendStatus(500);
-            // TODO: add logging
-        }
+            return;
+        } 
+        if (mongoClient === null) {
+            res.sendStatus(500);
+            console.log('no client is returned');
+            return;
+        } 
         mongoClient.db('fifaassist').collection('players').findOne({_id: ObjectID(playerID)}, (err, item) => {
-            if (err !== null || item === null) {
+            if (err) {
+                console.log('there is err querying the database');
                 res.sendStatus(404);
-            } else {
-                res.json(item);
+                return;
+            } 
+            if (item === null) {
+                console.log('cannot find the item')
+                res.sendStatus(404);
+                return;
             }
-        });
+            res.json(item);
+        })
     });
 });
 
