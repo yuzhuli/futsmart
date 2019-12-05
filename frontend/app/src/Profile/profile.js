@@ -2,7 +2,6 @@ import React from 'react';
 import { Container} from 'react-bootstrap';
 import { MyBadge } from './badge';
 import { RadarChart } from './radarChart';
-import { SingleSkillTable } from './singleSkillTable';
 import {SkillTablesSection} from './skillTablesSection';
 
 export const Profile = (props) => {
