@@ -19,7 +19,7 @@ function generate_players() {
         for (let i = 0; i < 20; i++) {
             const dummy_player = {
                 "Name":"",
-                "id": -i-1,
+                "id": -i,
                 "rating":0,
                 "position":"",
                 "Club":"",

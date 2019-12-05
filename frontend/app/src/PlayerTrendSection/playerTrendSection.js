@@ -12,27 +12,6 @@ function generate_players() {
         'top_decreasing_icon': [],
     };
 
-    // const dummy_player = {
-    //     "Name":"",
-    //     "last_name": "",
-    //     "rating":0,
-    //     "position":"",
-    //     "Club":"",
-    //     "main_pace":0,
-    //     "main_shooting":0,
-    //     "main_passing":0,
-    //     "main_dribbling":0,
-    //     "main_defending":0,
-    //     "main_physicality":0,
-    //     "price_diff_percentage":"0%",
-    //     "price_diff":0,
-    //     "price":0,
-    //     "club_img_url":"",
-    //     "nation_img_url":"",
-    //     "player_img_url":"",
-    //     "id": 0,
-    // };
-
     for (const key in dummy_players) {
         for (let i = 0; i < 20; i++) {
             const dummy_player = {
