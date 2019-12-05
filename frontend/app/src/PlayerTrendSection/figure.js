@@ -8,7 +8,7 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
     // const textColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
 
     return (
-        <Link to='/profile/1234'>
+        <Link to={`/profile/${player['id']}`}>
         <Figure>
             <MyBadge playerType={playerType} player={player} isLoading={isLoading} lastName={player['last_name']}></MyBadge>
                 <Figure.Caption style={{textAlign: "center"}}>
