@@ -9,14 +9,14 @@ export const RadarChart = ({player}) => {
     labels: ['PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY'],
     datasets: [
         {
-        //   label: 'My First dataset',
+        label: 'Score',
         backgroundColor: 'rgba(255,99,132,0.2)',
         borderColor: 'rgba(255,99,132,1)',
         pointBackgroundColor: 'rgba(255,99,132,1)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(255,99,132,1)',
-        data: [75, 78, 91, 91, 73, 67]
+        data: [70, 60, 80, 50, 30, 40]
         },
     ]
     };
@@ -34,12 +34,11 @@ export const RadarChart = ({player}) => {
       };
 
     for (let i = 0; i < skills.length; i ++) {
-        data.datasets[0].data[i] = player[skills[i]];
+      data.datasets[0].data[i] = player[skills[i]];
     }
 
     return (
       <div>
-        {/* <h2>Radar Example</h2> */}
         <Radar data={data} options={options_template}/>
       </div>
     );
