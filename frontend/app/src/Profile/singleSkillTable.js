@@ -1,15 +1,13 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-export const SingleSkillTable = () => {
-    const totalScore = 60;
-    const subSkills = [['Positioning', 70], ['Finishing', 76], ['Shot Power', 55], ['Long Shot', 33], ['Volleys', 32], ['Penalties', 36]];
+export const SingleSkillTable = ({skillName, skillRating, subSkills}) => {
     let themeColor = 'white';
-    if (totalScore <=60) {
+    if (skillRating <=60) {
         themeColor = '#bd2f2f';
-    } else if (totalScore <= 70) {
+    } else if (skillRating <= 70) {
         themeColor = '#c8790a';
-    } else if (totalScore <= 80) {
+    } else if (skillRating <= 80) {
         themeColor = '#e8b415';
     } else {
         themeColor = '#99cf46';
@@ -18,16 +16,16 @@ export const SingleSkillTable = () => {
     return (
         <Table borderless>
             <thead>
-                <tr style={{color: themeColor, fontWeight: 500, fontSize: '16px', fontFamily: 'sans-serif !important'}}>
-                    <th colSpan='2'>SHOOTING</th>
-                    <th>73</th>
+                <tr style={{color: themeColor, fontWeight: 500, fontSize: '16px', fontFamily: 'sans-serif !important', textTransform: 'uppercase'}}>
+                    <th colSpan='2'>{skillName}</th>
+                    <th>{skillRating}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td colSpan='2'>
                         <div style={{position: 'relative', backgroundColor: 'lightGrey', width: '100%', height: '6px'}}>
-                            <div style={{position: 'relative', backgroundColor: themeColor, width: totalScore.toString() +'%', height: '6px'}}/>
+                            <div style={{position: 'relative', backgroundColor: themeColor, width: skillRating.toString() +'%', height: '6px'}}/>
                         </div>
                     </td>
                 </tr>

@@ -48,7 +48,6 @@ function process_raw_player_data(raw_players) {
             player["price_diff_percentage"] = rounded_percentage
             const name_arr = player['Name'].split(' ');
             player["last_name"] = name_arr[name_arr.length - 1];
-
         });
     }
 }
