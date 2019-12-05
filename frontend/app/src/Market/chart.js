@@ -37,7 +37,10 @@ const options_template = {
         maxTicksLimit: 0,
       }
     }]
-  }
+  },
+  legend: {
+    display: false,
+  },
 };
 
   indices.forEach(element => {

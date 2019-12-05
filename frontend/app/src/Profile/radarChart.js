@@ -27,7 +27,10 @@ export const RadarChart = ({player}) => {
                 min: 20,
                 max: 100
             }
-        }
+        },
+        legend: {
+          display: false,
+        },
       };
 
     for (let i = 0; i < skills.length; i ++) {
