@@ -3,8 +3,6 @@ const cors = require('cors');
 const redis = require('redis');
 const {promisify} = require('util');
 const ObjectID = require('mongodb').ObjectID;
-// import {ObjectID} from 'mongodb';
-// import MongoDBConnection from './MongoDBConnection';
 const {MongoDBConnection} = require('./MongoDBConnection');
 
 const app = express();
@@ -92,9 +90,6 @@ app.get('/api/profile/:playerID', (req, res) => {
             res.sendStatus(500);
             // TODO: add logging
         }
-        // mongoClient.db('fifaassist').listCollections().toArray(function(err, collInfos) {
-        //     console.log(collInfos);
-        // });
         mongoClient.db('fifaassist').collection('players').findOne({_id: ObjectID(playerID)}, (err, item) => {
             if (err !== null || item === null) {
                 res.sendStatus(404);
@@ -103,7 +98,6 @@ app.get('/api/profile/:playerID', (req, res) => {
             }
         });
     });
-
 });
 
 
