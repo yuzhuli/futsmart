@@ -31,7 +31,7 @@ export const SingleSkillTable = ({skillName, skillRating, subSkills}) => {
                 </tr>
                 {subSkills.map(subSkill => {
                     return (
-                        <tr style={{color: 'rgb(72, 72, 72)', fontSize: '15px', fontFamily: 'sans-serif !important'}}>
+                        <tr key={subSkill[0]} style={{color: 'rgb(72, 72, 72)', fontSize: '15px', fontFamily: 'sans-serif !important'}}>
                             <td colSpan='2'>{subSkill[0]}</td>
                             <td >{subSkill[1]}</td>
                         </tr>
