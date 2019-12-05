@@ -3,10 +3,10 @@ const { MongoClient } = require('mongodb');
 class MongoDBConnection {
     static getClient(callback) {
         if (this.client) {
-            callback(null, client);
+            callback(null, this.client);
         } else {
             MongoClient.connect(this.url, this.options, (err, client) => {
-                MongoDBConnection.client = client;
+                this.client = client;
                 callback(err, client);
             });
         }
@@ -15,6 +15,7 @@ class MongoDBConnection {
 
 MongoDBConnection.client = null;
 MongoDBConnection.url = 'mongodb://localhost:27017';
-MongoDBConnection.options = {};
+MongoDBConnection.options = {useUnifiedTopology: true};
+// MongoDBConnection.options = null;
 
 exports.MongoDBConnection = MongoDBConnection;
