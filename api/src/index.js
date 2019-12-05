@@ -1,28 +1,36 @@
 const express = require('express');
-// const path = require('path');
 const cors = require('cors');
 const redis = require('redis');
+const {promisify} = require('util');
+const ObjectID = require('mongodb').ObjectID;
+// import {ObjectID} from 'mongodb';
+// import MongoDBConnection from './MongoDBConnection';
+const {MongoDBConnection} = require('./MongoDBConnection');
 
 const app = express();
+
+// Solve CORS Issue
 app.use(cors());
+
+// Serve the static files from the React app
+// const path = require('path');
+// app.use(express.static(path.join(__dirname, 'client/build')));
 app.use('/static', express.static('public'));
+
 // const bodyParser = require('body-parser');
 
+// Connect to Redis
 const client = redis.createClient({
     // host: 'redis-server',
     host: '127.0.0.1',
     port: 6379,
 });
-
 client.on('error', (err) => {
     console.log("Connetion Error: " + err)
 });
 
-const {promisify} = require('util');
+// Promisify Redis get functions
 const getAsync = promisify(client.get).bind(client);
-
-// Serve the static files from the React app
-// app.use(express.static(path.join(__dirname, 'client/build')));
 
 // An api endpoint that returns a short list of items
 app.get('/api/indices', (req, res) => {
@@ -72,6 +80,32 @@ app.get('/api/trendy_players', (req, res) => {
         throw new Error(err.toString());
     });
 });
+
+app.get('/api/profile/:playerID', (req, res) => {
+    const playerID = req.params.playerID;
+    if (!ObjectID.isValid(playerID)) {
+        throw new Error('Invalid player id');
+    }
+
+    MongoDBConnection.getClient((err, mongoClient) => {
+        if (err) {
+            res.sendStatus(500);
+            // TODO: add logging
+        }
+        // mongoClient.db('fifaassist').listCollections().toArray(function(err, collInfos) {
+        //     console.log(collInfos);
+        // });
+        mongoClient.db('fifaassist').collection('players').findOne({_id: ObjectID(playerID)}, (err, item) => {
+            if (err !== null || item === null) {
+                res.sendStatus(404);
+            } else {
+                res.json(item);
+            }
+        });
+    });
+
+});
+
 
 const port = process.env.PORT || 3001;
 const host = '0.0.0.0';
