@@ -45,13 +45,16 @@ app.get('/api/indices', (req, res) => {
             if (results[i]) {
                 indices[categories[i]] = JSON.parse(results[i]);
             } else {
-                throw new Error('Missing indices for: ' + categories[i]);
+                console.log('Missing indices for: ' + categories[i]);
+                res.sendStatus(500);
+                return;
             }
         }
         res.json(indices);
     })
     .catch(err => {
-        throw new Error(err.toString());
+        console.log(err.toString());
+        res.sendStatus(404);
     });
 });
 
@@ -69,13 +72,16 @@ app.get('/api/trendy_players', (req, res) => {
             if (results[i]) {
                 players[categories[i]] = JSON.parse(results[i]);
             } else {
-                throw new Error('Missing indices for: ' + categories[i]);
+                console.log('Missing indices for: ' + categories[i]);
+                res.sendStatus(500);
+                return;
             }
         }
         res.json(players);
     })
     .catch(err => {
-        throw new Error(err.toString());
+        console.log(err.toString());
+        res.sendStatus(404);
     });
 });
 
