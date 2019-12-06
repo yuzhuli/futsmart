@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {SingleTypeSubsection} from "./singleTypeSubsection";
+import {API_PREFIX} from '../globalConstants';
 
 const PLAYER_TYPE_GOLD = 'Gold';
 const PLAYER_TYPE_ICON = 'Icon';
@@ -57,7 +58,7 @@ export const PlayerTrendSection = () => {
     const [players, setPlayers] = useState(generate_players());
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/trendy_players")
+        fetch(API_PREFIX + "/api/trendy_players")
         .then(response => response.json())
         .then(data => {
             process_raw_player_data(data);

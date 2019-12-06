@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image,} from 'react-bootstrap';
+import {API_PREFIX} from '../globalConstants';
 
 export const MyBadge = ({playerType, player, isLoading, lastName}) => {
     var badgeBgdImg = "";
@@ -250,14 +251,14 @@ export const MyBadge = ({playerType, player, isLoading, lastName}) => {
                     <div style={positionItemStyle}>{player.position}</div>
                     <div style={topOneHorLineStyle} />
                     <div style={countryDivStyle}>
-                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={"http://localhost:3001" + player.nation_img_url}/>
+                        <Image style={{maxWidth: '30px', verticalAlign: 'middle'}} src={API_PREFIX + player.nation_img_url}/>
                     </div>
                     <div style={topTwoHorLineStyle} />
                     <div style={clubDivStyle}>
-                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={"http://localhost:3001" + player.club_img_url}/>
+                        <Image style={{width: '26px', verticalAlign: 'middle'}} src={API_PREFIX + player.club_img_url}/>
                     </div>
                     <div style={picDivStyle}>
-                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={"http://localhost:3001" + player.player_img_url}/>
+                        <Image style={{width: '122px', verticalAlign: 'middle'}} src={API_PREFIX + player.player_img_url}/>
                     </div>
                     <div style={nameDivStyle}>{lastName}</div>
                     <div style={threeHorLineDiv} />
