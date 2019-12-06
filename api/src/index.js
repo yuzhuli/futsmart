@@ -36,7 +36,7 @@ app.get('/api/indices', (req, res) => {
     const categories = ['gold_indices_all', 'icon_indices_all'];
     const indices = {};
     const promises = []
-    categories.map(category => {
+    categories.forEach(category => {
         const promise = getAsync(category);
         promises.push(promise);
     });
@@ -63,7 +63,7 @@ app.get('/api/trendy_players', (req, res) => {
     const categories = ['top_increasing_gold', 'top_decreasing_gold', 'top_increasing_icon', 'top_decreasing_icon'];
     const players = {};
     const promises = [];
-    categories.map(category => {
+    categories.forEach(category => {
         const promise = getAsync(category);
         promises.push(promise);
     });
