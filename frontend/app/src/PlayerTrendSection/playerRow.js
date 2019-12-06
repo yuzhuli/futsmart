@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Nav, Navbar } from "react-bootstrap";
 import { MyFigure } from "./figure";
+import { API_PREFIX } from "../globalConstants";
 
 export const MyPlayerRow = ({playerType, priceType, topFivePlayers, isLoading}) => {
     return (
