@@ -19,10 +19,10 @@ export const SingleTypePlayerList = ({priceType, players}) => {
                     return (
                         <tr key={player['id']}>
                                 <td colSpan="2">
-                                    <img src="https://i.imgur.com/ebHLKjb.png" style={{width: '40px', height: '40px'}}></img>
-                                    <img src="https://i.imgur.com/obecPMW.png" style={{width: '30px', height: '25px'}}></img>
+                                    <img src={'http://localhost:3001' + player['player_img_url']} style={{width: '40px', height: '40px'}}></img>
+                                    <img src={'http://localhost:3001' + player['club_img_url']} style={{width: '30px', height: '25px'}}></img>
                                     <span> </span>
-                                    <img src="https://i.imgur.com/Kc3ZyJ3.png" style={{width: '30px', height: '30px'}}></img>
+                                    <img src={'http://localhost:3001' + player['nation_img_url']} style={{width: '30px', height: '30px'}}></img>
                                     <span> </span>
                                     <a href={`/player/${player['id']}`} style={{color: 'rgb(72, 72, 72)'}}> {player['Name']} ({player['price']})</a>
                                 </td>

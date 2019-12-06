@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const redis = require('redis');
+const path = require('path');
 const {promisify} = require('util');
 const ObjectID = require('mongodb').ObjectID;
 const {MongoDBConnection} = require('./MongoDBConnection');
@@ -9,11 +10,6 @@ const app = express();
 
 // Solve CORS Issue
 app.use(cors());
-
-// Serve the static files from the React app
-// const path = require('path');
-// app.use(express.static(path.join(__dirname, 'client/build')));
-app.use('/static', express.static('public'));
 
 // const bodyParser = require('body-parser');
 
@@ -29,6 +25,11 @@ client.on('error', (err) => {
 
 // Promisify Redis get functions
 const getAsync = promisify(client.get).bind(client);
+
+// Serve the static files from the React app
+
+// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/static', express.static('public'));
 
 // An api endpoint that returns a short list of items
 app.get('/api/indices', (req, res) => {
