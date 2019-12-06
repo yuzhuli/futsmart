@@ -5,7 +5,6 @@ import {SingleSkillTable} from './singleSkillTable';
 
 export const SkillTablesSection = ({player, skillDetailLabels}) => {
     const skillNames = Object.keys(skillDetailLabels);
-    console.log(skillNames);
 
     return (
         <div>

@@ -139,12 +139,9 @@ const dummy_player = {
 }
 
 function process_raw_player_data(raw_player) {
-    for (const key in raw_player) {
-        const name_arr = raw_player['Name'].split(' ');
-        raw_player['last_name'] = name_arr[name_arr.length - 1];
-        raw_player['player_type'] = raw_player['Club'] === "Icons" ? PLAYER_TYPE_ICON : PLAYER_TYPE_GOLD;
-
-    }
+    const name_arr = raw_player['Name'].split(' ');
+    raw_player['last_name'] = name_arr[name_arr.length - 1];
+    raw_player['player_type'] = raw_player['Club'] === "Icons" ? PLAYER_TYPE_ICON : PLAYER_TYPE_GOLD;
 }
 
 export const Profile = (props) => {

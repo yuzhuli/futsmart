@@ -3,7 +3,6 @@ import { Table } from 'react-bootstrap';
 
 export const SingleSkillTable = ({skillName, subSkills, player}) => {
     const skillNameUsedInObject = 'main_' + skillName;
-    console.log(skillNameUsedInObject);
     const skillRating = player[skillNameUsedInObject];
     let themeColor = 'white';
     if (skillRating <=60) {
