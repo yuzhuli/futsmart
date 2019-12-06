@@ -8,8 +8,8 @@ export const MyFigure = ({playerType, priceType, player, isLoading}) => {
     // const textColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
 
     return (
-        // <Link to={`/player/${player['id']}`}>
-        <Link to="/player/5dba80b7574fa4e02a3fa708">
+        <Link to={`/player/${player['id']}`}>
+        {/* <Link to="/player/5dba80b7574fa4e02a3fa708"> */}
         <Figure>
             <MyBadge playerType={playerType} player={player} isLoading={isLoading} lastName={player['last_name']}></MyBadge>
                 <Figure.Caption style={{textAlign: "center"}}>

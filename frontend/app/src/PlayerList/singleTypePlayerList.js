@@ -24,7 +24,7 @@ export const SingleTypePlayerList = ({priceType, players}) => {
                                     <span> </span>
                                     <img src="https://i.imgur.com/Kc3ZyJ3.png" style={{width: '30px', height: '30px'}}></img>
                                     <span> </span>
-                                    <a href={`/profile/${player['id']}`} style={{color: 'rgb(72, 72, 72)'}}> {player['Name']} ({player['price']})</a>
+                                    <a href={`/player/${player['id']}`} style={{color: 'rgb(72, 72, 72)'}}> {player['Name']} ({player['price']})</a>
                                 </td>
                             
                             <td style={{color: listColor}}>{trendSign} {player['price_diff_percentage']}</td>
