@@ -72,16 +72,16 @@ export const PlayerTrendSection = () => {
 
         <SingleTypeSubsection 
             playerType={PLAYER_TYPE_GOLD} 
-            topFiveUp={players["top_increasing_gold"].slice(0, 5)}
-            topFiveDown={players["top_decreasing_gold"].slice(0, 5)}
+            topFiveUp={players["top_increasing_gold"].length > 5 ? players["top_increasing_gold"].slice(0, 5): players["top_increasing_gold"]}
+            topFiveDown={players["top_decreasing_gold"].length > 5 ? players["top_decreasing_gold"].slice(0, 5): players["top_decreasing_gold"]}
             isLoading={isLoading}
         />
 
 
         <SingleTypeSubsection
             playerType={PLAYER_TYPE_ICON}
-            topFiveUp={players["top_increasing_icon"].slice(0, 5)}
-            topFiveDown={players["top_decreasing_icon"].slice(0, 5)}
+            topFiveUp={players["top_increasing_icon"].length > 5 ? players["top_increasing_icon"].slice(0, 5): players["top_increasing_icon"]}
+            topFiveDown={players["top_decreasing_icon"].length > 5 ? players["top_decreasing_icon"].slice(0, 5): players["top_decreasing_icon"]}
             isLoading={isLoading}
         />
 
