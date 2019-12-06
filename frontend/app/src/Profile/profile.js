@@ -7,8 +7,31 @@ import {API_PREFIX} from '../globalConstants';
 
 const PLAYER_TYPE_GOLD = 'Gold';
 const PLAYER_TYPE_ICON = 'Icon';
+const POSITION_GK = "GK";
 
-const skills = {
+const gkSkillDetailLabels = {
+    'diving': [
+        ['diving', 'Diving']
+    ],
+    'handling': [
+        ['handling', 'Handling'],
+    ],
+    'kicking': [
+        ['kicking', 'Kicking']
+    ],
+    'reflexes': [
+        ['reflexes', 'Reflexes']
+    ],
+    'speed': [
+        ['acceleration', 'Acceleration'],
+        ['sprintspeed', 'Sprint Speed']
+    ],
+    'positioning': [
+        ['positioning', 'Positioning']
+    ]
+}
+
+const skillDetailLabels = {
     'pace': [
         ['acceleration', 'Acceleration'],
         ['sprintspeed', 'Sprint Speed'],
@@ -62,6 +85,7 @@ const dummy_player = {
     "img_url":"",
     "futbin_id":"",
     "rating":0,
+    "position": "",
     "updated_at":"",
     "Name":"",
     "Club":"",
@@ -156,7 +180,7 @@ export const Profile = (props) => {
 
             <div style={{position: 'absolute', width: '100%', top: '460px', height: '1px', left: '0', background: '#645215', opacity: 0.8}}/>
 
-            <SkillTablesSection player={player} skills={skills}/>
+            <SkillTablesSection player={player} skillDetailLabels={player.position.toUpperCase() === POSITION_GK ? gkSkillDetailLabels : skillDetailLabels}/>
         </Container>
     );
 }

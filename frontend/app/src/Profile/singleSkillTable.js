@@ -1,7 +1,10 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-export const SingleSkillTable = ({skillName, skillRating, subSkills, player}) => {
+export const SingleSkillTable = ({skillName, subSkills, player}) => {
+    const skillNameUsedInObject = 'main_' + skillName;
+    console.log(skillNameUsedInObject);
+    const skillRating = player[skillNameUsedInObject];
     let themeColor = 'white';
     if (skillRating <=60) {
         themeColor = '#bd2f2f';
