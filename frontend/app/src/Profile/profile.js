@@ -115,54 +115,15 @@ const dummy_player = {
 }
 
 function process_raw_player_data(raw_player) {
-    // raw_player["pace_details"] = [];
-    // raw_player["shooting_details"] = [];
-    // raw_player["passing_details"] = [];
-    // raw_player["dribbling_details"] = [];
-    // raw_player["defending_details"] = [];
-    // raw_player["physicality_details"] = [];
     for (const key in raw_player) {
         const name_arr = raw_player['Name'].split(' ');
         raw_player['last_name'] = name_arr[name_arr.length - 1];
         raw_player['player_type'] = raw_player['Club'] === "Icons" ? PLAYER_TYPE_ICON : PLAYER_TYPE_GOLD;
-        // if (key === "acceleration") raw_player.pace_details.push(["Acceleration", raw_player[key]]);
-        // if (key === "sprintspeed") raw_player.pace_details.push(["Sprint Spped", raw_player[key]]);
-        // if (key === "positioning") raw_player.shooting_details.push(["Positioning", raw_player[key]]);
-        // if (key === "finishing") raw_player.shooting_details.push(["Finishing", raw_player[key]]);
-        // if (key === "shotpower") raw_player.shooting_details.push(["Shot Power", raw_player[key]]);
-        // if (key === "longshots") raw_player.shooting_details.push(["Long Shots", raw_player[key]]);
-        // if (key === "volleys") raw_player.shooting_details.push(["Volleys", raw_player[key]]);
-        // if (key === "penalties") raw_player.shooting_details.push(["Penaties", raw_player[key]]);
 
-        // if (key === "vision") raw_player.passing_details.push(["Vision", raw_player[key]]);
-        // if (key === "crossing") raw_player.passing_details.push(["Crossing", raw_player[key]]);
-        // if (key === "fk_accuracy") raw_player.passing_details.push(["FK. Accuracy", raw_player[key]]);
-        // if (key === "shortpassing") raw_player.passing_details.push(["Short Passing", raw_player[key]]);
-        // if (key === "longpassing") raw_player.passing_details.push(["Long Passing", raw_player[key]]);
-        // if (key === "curve") raw_player.passing_details.push(["Curve", raw_player[key]]);
-
-        // if (key === "agility") raw_player.dribbling_details.push(["Agility", raw_player[key]]);
-        // if (key === "balance") raw_player.dribbling_details.push(["Balance", raw_player[key]]);
-        // if (key === "reactions") raw_player.dribbling_details.push(["Reactions", raw_player[key]]);
-        // if (key === "ballcontrol") raw_player.dribbling_details.push(["Ball Control", raw_player[key]]);
-        // if (key === "dribbling") raw_player.dribbling_details.push(["Dribbling", raw_player[key]]);
-        // if (key === "compusure") raw_player.dribbling_details.push(["Composure", raw_player[key]]);
-
-        // if (key === "interceptions") raw_player.defending_details.push(["Interceptions", raw_player[key]]);
-        // if (key === "headingaccuracy") raw_player.defending_details.push(["Heading Accuracy", raw_player[key]]);
-        // if (key === "def_awareness") raw_player.defending_details.push(["Def. Awareness", raw_player[key]]);
-        // if (key === "standingtackle") raw_player.defending_details.push(["Standing Tackle", raw_player[key]]);
-        // if (key === "slidingtackle") raw_player.defending_details.push(["Sliding Tackle", raw_player[key]]);
-
-        // if (key === "jumping") raw_player.physicality_details.push(["Jumping", raw_player[key]]);
-        // if (key === "stamina") raw_player.physicality_details.push(["Stamina", raw_player[key]]);
-        // if (key === "strength") raw_player.physicality_details.push(["Strength", raw_player[key]]);
-        // if (key === "aggression") raw_player.physicality_details.push(["Aggresion", raw_player[key]]);
     }
 }
 
 export const Profile = (props) => {
-    // uncomment the following when fetch player by id is implemented
     const [isLoading, setIsLoading] = useState(true);
     const [player, setPlayer] = useState(dummy_player);
 
