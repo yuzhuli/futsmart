@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-export const SingleSkillTable = ({skillName, skillRating, subSkills}) => {
+export const SingleSkillTable = ({skillName, skillRating, subSkills, player}) => {
     let themeColor = 'white';
     if (skillRating <=60) {
         themeColor = '#bd2f2f';
@@ -32,8 +32,8 @@ export const SingleSkillTable = ({skillName, skillRating, subSkills}) => {
                 {subSkills.map(subSkill => {
                     return (
                         <tr key={subSkill[0]} style={{color: 'rgb(72, 72, 72)', fontSize: '15px', fontFamily: 'sans-serif !important'}}>
-                            <td colSpan='2'>{subSkill[0]}</td>
-                            <td >{subSkill[1]}</td>
+                            <td colSpan='2'>{subSkill[1]}</td>
+                            <td >{player[subSkill[0]]}</td>
                         </tr>
                     );
                 })
