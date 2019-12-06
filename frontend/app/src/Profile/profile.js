@@ -172,7 +172,7 @@ export const Profile = (props) => {
             </div>
 
             <div style={{ left: '150px', position: 'absolute', top: '45px', width: '800px', height: '450px'}}>
-                <RadarChart player={player}></RadarChart>
+                <RadarChart player={player} skillNames={player.position.toUpperCase() === POSITION_GK ? Object.keys(gkSkillDetailLabels) : Object.keys(skillDetailLabels)}></RadarChart>
             </div>
 
             <div style={{position: 'absolute', width: '100%', top: '460px', height: '1px', left: '0', background: '#645215', opacity: 0.8}}/>

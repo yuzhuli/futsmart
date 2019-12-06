@@ -2,11 +2,10 @@ import React from 'react';
 import {Radar} from 'react-chartjs-2';
 
 
-export const RadarChart = ({player}) => {
-    const skills = ["main_pace", "main_shooting", "main_passing", "main_dribbling", "main_defending", "main_physicality"];
+export const RadarChart = ({player, skillNames}) => {
 
     const data = {
-    labels: ['PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY'],
+    labels: [],
     datasets: [
         {
         label: 'Score',
@@ -16,7 +15,7 @@ export const RadarChart = ({player}) => {
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgba(255,99,132,1)',
-        data: [70, 60, 80, 50, 30, 40]
+        data: []
         },
     ]
     };
@@ -33,9 +32,11 @@ export const RadarChart = ({player}) => {
         },
       };
 
-    for (let i = 0; i < skills.length; i ++) {
-      data.datasets[0].data[i] = player[skills[i]];
-    }
+    skillNames.forEach(skillName => {
+      const skillNameUsedInObject = 'main_' + skillName;
+      data.labels.push(skillName.toUpperCase());
+      data.datasets[0].data.push(player[skillNameUsedInObject]);
+    });
 
     return (
       <div>
