@@ -147,9 +147,10 @@ function process_raw_player_data(raw_player) {
 export const Profile = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [player, setPlayer] = useState(dummy_player);
+    const playerid = props.match.params.playerid;
 
     useEffect(() => {
-        fetch(API_PREFIX + `/api/player/${props.match.params.playerid}`)
+        fetch(API_PREFIX + `/api/player/${playerid}`)
         .then(response => response.json())
         .then(data => {
             process_raw_player_data(data);
@@ -157,7 +158,7 @@ export const Profile = (props) => {
             setIsLoading(false);
         })
         .catch(err => {console.log(err);});
-    }, []);
+    }, [playerid]);
 
     return (
         <Container style={{position: 'relative'}}>
