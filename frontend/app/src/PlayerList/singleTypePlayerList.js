@@ -1,6 +1,5 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import {API_PREFIX} from '../globalConstants';
 
 export const SingleTypePlayerList = ({priceType, players}) => {
     const listColor = priceType === 'Up' ? '#99cf46' : '#bd2f2f';
@@ -20,10 +19,10 @@ export const SingleTypePlayerList = ({priceType, players}) => {
                     return (
                         <tr key={player['id']}>
                                 <td colSpan="2">
-                                    <img src={API_PREFIX + player['player_img_url']} style={{width: '40px', height: '40px'}}></img>
-                                    <img src={API_PREFIX + player['club_img_url']} style={{width: '30px', height: '25px'}}></img>
+                                    <img src={player['player_img_url']} style={{width: '40px', height: '40px'}}></img>
+                                    <img src={player['club_img_url']} style={{width: '30px', height: '25px'}}></img>
                                     <span> </span>
-                                    <img src={API_PREFIX + player['nation_img_url']} style={{width: '30px', height: '30px'}}></img>
+                                    <img src={player['nation_img_url']} style={{width: '30px', height: '30px'}}></img>
                                     <span> </span>
                                     <a href={`/player/${player['id']}`} style={{color: 'rgb(72, 72, 72)'}}> {player['Name']} ({player['price']})</a>
                                 </td>
