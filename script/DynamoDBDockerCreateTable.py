@@ -6,25 +6,25 @@ dynamodb = botoCli.resource('dynamodb', region_name='us-west-2', endpoint_url="h
 
 
 # Create table for Indices
-# indices_table = dynamodb.create_table(
-#     TableName='Indices',
-#     KeySchema=[
-#         {
-#             'AttributeName': 'type',
-#             'KeyType': 'HASH'  #Partition key
-#         }
-#     ],
-#     AttributeDefinitions=[
-#         {
-#             'AttributeName': 'type',
-#             'AttributeType': 'S'
-#         },
-#     ],
-#     ProvisionedThroughput={
-#         'ReadCapacityUnits': 10,
-#         'WriteCapacityUnits': 10
-#     }
-# )
+indices_table = dynamodb.create_table(
+    TableName='Indices',
+    KeySchema=[
+        {
+            'AttributeName': 'type',
+            'KeyType': 'HASH'  #Partition key
+        }
+    ],
+    AttributeDefinitions=[
+        {
+            'AttributeName': 'type',
+            'AttributeType': 'S'
+        },
+    ],
+    ProvisionedThroughput={
+        'ReadCapacityUnits': 10,
+        'WriteCapacityUnits': 10
+    }
+)
 
 
 # Create table for TrendyPlayers
@@ -49,14 +49,39 @@ dynamodb.create_table(
 )
 
 
+# Create table for PlayerNoSortKey
+# dynamodb.create_table(
+#     TableName='PlayerNoSortKey',
+#     KeySchema=[
+#         {
+#             'AttributeName': 'id',
+#             'KeyType': 'HASH'  #Partition key
+#         }
+#     ],
+#     AttributeDefinitions=[
+#         {
+#             'AttributeName': 'id',
+#             'AttributeType': 'S'
+#         },
+#     ],
+#     ProvisionedThroughput={
+#         'ReadCapacityUnits': 20,
+#         'WriteCapacityUnits': 20
+#     }
+# )
+
 # print("Table status:", dynamodb.Table('Indices').table_status)
 # print("Count of items in Indices Table: ", dynamodb.Table('Indices').item_count)
 
-print("Table status:", dynamodb.Table('TrendyPlayers').table_status)
-print("Count of items in Indices Table: ", dynamodb.Table('TrendyPlayers').item_count)
+# print("Table status:", dynamodb.Table('TrendyPlayers').table_status)
+# print("Count of items in Indices Table: ", dynamodb.Table('TrendyPlayers').item_count)
 
-# Delete the mistakenly created table "Indices"
+# print("Table status:", dynamodb.Table('PlayerNoSortKey').table_status)
+# print("Count of items in Indices Table: ", dynamodb.Table('PlayerNoSortKey').item_count)
+
+# Delete tabes
 # gold_indices_table = dynamodb.Table('GoldIndices')
 # icon_indices_table = dynamodb.Table('IconIndices')
 # gold_indices_table.delete()
 # icon_indices_table.delete()
+# dynamodb.Table('Player').delete()
