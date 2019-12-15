@@ -90,7 +90,7 @@ app.get('/api/indices', (req, res) => {
         if (err) {
             console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
             res.sendStatus(404);
-            return
+            return;
         }
         const response = {};
         const contents = data["Responses"]["Indices"];
@@ -102,30 +102,59 @@ app.get('/api/indices', (req, res) => {
     });
 });
 
-app.get('/api/trendy_players', (req, res) => {
-    const categories = ['top_increasing_gold', 'top_decreasing_gold', 'top_increasing_icon', 'top_decreasing_icon'];
-    const players = {};
-    const promises = [];
-    categories.forEach(category => {
-        const promise = getAsync(category);
-        promises.push(promise);
-    });
+// app.get('/api/trendy_players', (req, res) => {
+//     const categories = ['top_increasing_gold', 'top_decreasing_gold', 'top_increasing_icon', 'top_decreasing_icon'];
+//     const players = {};
+//     const promises = [];
+//     categories.forEach(category => {
+//         const promise = getAsync(category);
+//         promises.push(promise);
+//     });
 
-    Promise.all(promises).then(results => {
-        for (var i = 0; i < results.length; i++) {
-            if (results[i]) {
-                players[categories[i]] = JSON.parse(results[i]);
-            } else {
-                console.log('Missing indices for: ' + categories[i]);
-                res.sendStatus(500);
-                return;
+//     Promise.all(promises).then(results => {
+//         for (var i = 0; i < results.length; i++) {
+//             if (results[i]) {
+//                 players[categories[i]] = JSON.parse(results[i]);
+//             } else {
+//                 console.log('Missing indices for: ' + categories[i]);
+//                 res.sendStatus(500);
+//                 return;
+//             }
+//         }
+//         res.json(players);
+//     })
+//     .catch(err => {
+//         console.log(err.toString());
+//         res.sendStatus(404);
+//     });
+// });
+
+app.get('/api/trendy_players', (req, res) => {
+    const params = {
+        RequestItems: {
+            "TrendyPlayers": {
+                Keys: [
+                    {type: "top_increasing_gold"},
+                    {type: "top_decreasing_gold"},
+                    {type: "top_increasing_icon"},
+                    {type: "top_decreasing_icon"},
+                ]
             }
         }
-        res.json(players);
-    })
-    .catch(err => {
-        console.log(err.toString());
-        res.sendStatus(404);
+    };
+    docClient.batchGet(params, (err, data) => {
+        if (err) {
+            console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+            res.sendStatus(404);
+            return;
+        }
+        const response = {};
+        const contents = data["Responses"]["TrendyPlayers"];
+        for (let i = 0; i < contents.length; i++) {
+            const content = contents[i];
+            response[content["type"]] = JSON.parse(content["players"]);
+        }
+        res.json(response);
     });
 });
 
