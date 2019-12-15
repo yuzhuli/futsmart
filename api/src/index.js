@@ -96,7 +96,7 @@ app.get('/api/indices', (req, res) => {
         const contents = data["Responses"]["Indices"];
         for (let i=0; i < contents.length; i++) {
             const content = contents[i];
-            response[content["type"]] = JSON.parse(content["indices"]);
+            response[content["type"]] = JSON.parse(content["value"]);
         }
         res.json(response);
     });
@@ -194,12 +194,11 @@ app.get('/api/trendy_players', (req, res) => {
 
 app.get('/api/player/:playerID', (req, res) => {
     const playerID = req.params.playerID;
-    const table = "Player";
+    const table = "PlayerNoSortKey";
     const params = {
         TableName: table,
         Key: {
             "id": playerID,
-            "name": "a player"
         }
     };
     docClient.get(params, (err, data) => {
@@ -209,6 +208,7 @@ app.get('/api/player/:playerID', (req, res) => {
             return;
         }
         // return value format: {"Item": {dict of player info}}
+        // res.json(data);
         res.json(data["Item"]);
     });
 });
