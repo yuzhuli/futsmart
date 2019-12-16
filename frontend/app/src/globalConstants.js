@@ -1,3 +1,1 @@
-// export const API_PREFIX = (typeof process.env.API_PREFIX === 'undefined') ? "http://localhost:3001" : process.env.API_PREFIX;
-// export const API_PREFIX = "";
-export const API_PREFIX = "http://localhost:3001";
+export const REACT_APP_API_PREFIX = process.env.REACT_APP_API_PREFIX;

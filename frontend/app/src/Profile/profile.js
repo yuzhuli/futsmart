@@ -3,7 +3,7 @@ import { Container} from 'react-bootstrap';
 import { MyBadge } from './badge';
 import { RadarChart } from './radarChart';
 import {SkillTablesSection} from './skillTablesSection';
-import {API_PREFIX} from '../globalConstants';
+import {REACT_APP_API_PREFIX} from '../globalConstants';
 
 const PLAYER_TYPE_GOLD = 'Gold';
 const PLAYER_TYPE_ICON = 'Icon';
@@ -217,7 +217,7 @@ export const Profile = (props) => {
     const playerid = props.match.params.playerid;
 
     useEffect(() => {
-        fetch(API_PREFIX + `/api/player/${playerid}`)
+        fetch(REACT_APP_API_PREFIX + `/api/player/${playerid}`)
         .then(response => response.json())
         .then(data => {
             process_raw_player_data(data);

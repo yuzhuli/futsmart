@@ -1,6 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import {PlayerCategoryTab} from './playerCategoryTab';
-import {API_PREFIX} from '../globalConstants';
+import {REACT_APP_API_PREFIX} from '../globalConstants';
 
 function create_defaul_indices() {
     const dummy_indices = {
@@ -38,7 +38,7 @@ export const MarketTrend = () => {
     const [indices, setIndices] = useState(create_defaul_indices());
 
     useEffect( () => {
-        fetch(API_PREFIX + "/api/indices").then(response =>
+        fetch(REACT_APP_API_PREFIX + "/api/indices").then(response =>
             response.json()).then(data => {
                 process_raw_indices(data)
                 setIndices(data);

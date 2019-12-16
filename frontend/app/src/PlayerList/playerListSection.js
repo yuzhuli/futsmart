@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import {SingleTypePlayerList} from './singleTypePlayerList';
-import {API_PREFIX} from '../globalConstants';
+import {REACT_APP_API_PREFIX} from '../globalConstants';
 
 const PLAYER_LIST_TYPE_GOLD = 'Gold';
 const PLAYER_LIST_TYPE_ICON = 'Icon';
@@ -58,7 +58,7 @@ export const PlayerListSection = (props) => {
     const type = props.match.params.type.toLowerCase() === 'gold' ? PLAYER_LIST_TYPE_GOLD :  PLAYER_LIST_TYPE_ICON;
 
     useEffect(() => {
-        fetch(API_PREFIX + "/api/trendy_players")
+        fetch(REACT_APP_API_PREFIX+ "/api/trendy_players")
         .then((response) => response.json())
         .then((data) => {
             process_raw_player_data(data);
