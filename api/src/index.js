@@ -1,23 +1,25 @@
 const express = require('express');
 var AWS = require('aws-sdk');
+const ENV_TYPE = process.env.ENV_TYPE;
+
 
 const app = express();
 
 // Config AWS client to DynamoDB
-// specify the credentail profile to use
-// const credentials = new AWS.SharedIniFileCredentials({profile: 'dynamodb-docker-user'});
-// AWS.config.credentials = credentials;
-AWS.config.update({
-    region: "us-west-2",
-    // endpoint: "http://localhost:8000"
-});
-var docClient = new AWS.DynamoDB.DocumentClient();
-
-
-// Serve the static files from the React app
-
-// app.use(express.static(path.join(__dirname, 'client/build')));
-app.use('/static', express.static('public'));
+if (ENV_TYPE === "aws") {
+    AWS.config.update({
+        region: "us-west-2",
+    });
+    var docClient = new AWS.DynamoDB.DocumentClient();
+} else {
+    const credentials = new AWS.SharedIniFileCredentials({profile: 'dynamodb-docker-user'});
+    AWS.config.credentials = credentials;
+    AWS.config.update({
+        region: "us-west-2",
+        endpoint: "http://localhost:8000"
+    });
+    var docClient = new AWS.DynamoDB.DocumentClient();
+}
 
 app.get('/api/indices', (req, res) => {
     const params = {
