@@ -10,9 +10,9 @@ There are other trading info websites for FIFA20 on the market. But we find thei
 ## Architecture
 * Frontend: React App
 * Backend: Node.js
-* Data storage: 
-    ** NoSQL database (DynamoDB by AWS)  
-    ** Redis and MongoDB running in docker container (previously used for dev; have been replaced by DynamoDB)
+* Data storage:  
+    1. NoSQL database (DynamoDB by AWS)  
+    2. Redis and MongoDB running in docker container (previously used for dev; have been replaced by DynamoDB)
 Detailed information will be provided in the sections below.
 
 ## Two Deployments  
