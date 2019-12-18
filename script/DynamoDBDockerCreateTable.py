@@ -1,6 +1,9 @@
 from __future__ import print_function # Python 2/3 compatibility
 import boto3
 
+# botoCli = boto3.session.Session(profile_name='dynamodb-full-access')
+# dynamodb = botoCli.resource('dynamodb', region_name='us-west-2')
+
 botoCli = boto3.session.Session(profile_name='dynamodb-docker-user')
 dynamodb = botoCli.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000")
 
