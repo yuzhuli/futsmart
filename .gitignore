@@ -108,3 +108,4 @@ venv/
 .elasticbeanstalk/
 .DS_Store
 .vscode
+data_analysis/
