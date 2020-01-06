@@ -107,3 +107,4 @@ nginx.conf
 venv/
 .elasticbeanstalk/
 .DS_Store
+.vscode
